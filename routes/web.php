@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('portfolio', function () {
-    return view('portfolio');
+    return view('home-portfolio');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
