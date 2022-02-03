@@ -28,8 +28,17 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
+
+            'phone'=> $this->faker->phoneNumber(),
+            'greeting' => $this->faker->sentence(),
+            'profession' => $this->faker->sentence(),
+            'address'=> $this->faker->address(),
+            'about_me'=> $this->faker->paragraph(),
+            'about_me_picture' => $this->faker->imageUrl(1568, 961),
+
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'profile_photo_path' => $this->faker->imageUrl(425, 425),
         ];
     }
 

@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProfessionalSkill;
+use App\Models\TechnicalSkill;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(1)->create();
+        TechnicalSkill::factory(5)->create();
+        ProfessionalSkill::factory(5)->create();
     }
 }
