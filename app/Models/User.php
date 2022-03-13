@@ -68,4 +68,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(TechnicalSkill::class, 'user_id', 'id');
     }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'user_id', 'id');
+    }
+
+    public function featuredProjects()
+    {
+        return $this->hasMany(FeaturedProject::class, 'user_id', 'id');
+    }
 }
