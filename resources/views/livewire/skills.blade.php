@@ -9,8 +9,8 @@
                     <div class="mh-professional-skill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                         <h3>Technical Skills</h3>
                         <div class="each-skills">
-                            @foreach ($technical_skills as $tSkill)
-                                <x-technical-skills :tSkill="$tSkill"/>
+                            @foreach ($technical_skills as $technical_skill)
+                                <x-technical-skills :tSkill="$technical_skill"/>
                             @endforeach
                         </div>
                     </div>
@@ -20,8 +20,8 @@
                 <div class="mh-professional-skills wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
                     <h3>Professional Skills</h3>
                     <ul class="mh-professional-progress">
-                        @foreach ($professional_skills as $pSkill)
-                            <x-professional-skill :pSkill="$pSkill"/>
+                        @foreach ($professional_skills as $professional_skill)
+                            <x-professional-skill :pSkill="$professional_skill"/>
                         @endforeach
                     </ul>
                 </div>

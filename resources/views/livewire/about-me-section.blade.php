@@ -19,8 +19,8 @@
                 @endif
                 <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                     <ul>
-                        @foreach ($user->professional_skills as $skill)
-                            <li><span>{{ $skill->name }}</span></li>
+                        @foreach ($user->professional_skills as $professional_skills)
+                            <li><span>{{ $professional_skills->name }}</span></li>
                         @endforeach
                     </ul>
                 </div>
