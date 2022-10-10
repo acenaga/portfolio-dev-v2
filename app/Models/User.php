@@ -89,4 +89,9 @@ class User extends Authenticatable
         return $this->hasMany(WorkExperience::class, 'user_id', 'id');
         // return $this->hasMany(WorkExperience::class, 'user_id', 'id')->with('responsibilities');
     }
+
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class, 'user_id', 'id');
+    }
 }

@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Education;
 use App\Models\FeaturedProject;
+use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
+use App\Models\PortfolioImage;
 use App\Models\ProfessionalSkill;
 use App\Models\Service;
 use App\Models\TechnicalSkill;
@@ -29,5 +32,8 @@ class DatabaseSeeder extends Seeder
         Education::factory(4)->create();
         WorkExperience::factory(4)->create();
         WorkResponsibility::factory(15)->create();
+        PortfolioCategory::factory(5)->create();
+        Portfolio::factory(10)->create();
+        PortfolioImage::factory(30)->create();
     }
 }

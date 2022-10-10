@@ -14,7 +14,7 @@ class FeaturedProjectFactory extends Factory
     public function definition()
     {
         return [
-            'image' => $this->faker->imageUrl(800, 600),
+            'image' => $this->faker->imageUrl(800, 600, 'animals', true),
             'category' => $this->faker->sentence,
             'title' => $this->faker->sentence,
             'keyword_sentence' => $this->faker->sentence,
@@ -23,7 +23,7 @@ class FeaturedProjectFactory extends Factory
             'link_text' => $this->faker->sentence,
             'testimonial' => $this->faker->paragraph,
             'testimonial_author' => $this->faker->name,
-            'user_id'=> 1
+            'user_id' => 1
         ];
     }
 }
