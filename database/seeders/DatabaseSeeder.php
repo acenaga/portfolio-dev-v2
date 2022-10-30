@@ -2,13 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\ClientReview;
 use App\Models\Education;
 use App\Models\FeaturedProject;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use App\Models\PortfolioImage;
+use App\Models\Post;
+use App\Models\PostCategory;
 use App\Models\ProfessionalSkill;
 use App\Models\Service;
+use App\Models\SocialMedia;
 use App\Models\TechnicalSkill;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -35,5 +39,9 @@ class DatabaseSeeder extends Seeder
         PortfolioCategory::factory(5)->create();
         Portfolio::factory(10)->create();
         PortfolioImage::factory(30)->create();
+        PostCategory::factory(5)->create();
+        Post::factory(10)->create();
+        SocialMedia::factory(5)->create();
+        ClientReview::factory(5)->create();
     }
 }

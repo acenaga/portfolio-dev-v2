@@ -2,65 +2,65 @@
 
 @section('content')
     <!--
-        ===================
-            NAVIGATION
-        ===================
-        -->
+            ===================
+                NAVIGATION
+            ===================
+            -->
     <header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav" id="mh-header">
         <div class="overlay"></div>
         <x-navigation />
     </header>
 
     <!--
-        ===================
-            Home
-        ===================
-        -->
+            ===================
+                Home
+            ===================
+            -->
     <section class="mh-home image-bg home-2-img" id="mh-home">
         <livewire:home-section>
     </section>
 
     <!--
-        ===================
-            ABOUT
-        ===================
-        -->
+            ===================
+                ABOUT
+            ===================
+            -->
     <section class="mh-about" id="mh-about">
         <livewire:about-me-section>
     </section>
 
     <!--
-        ===================
-            SERVICE
-        ===================
-        -->
+            ===================
+                SERVICE
+            ===================
+            -->
     <section class="mh-service">
         <livewire:service-section>
     </section>
 
     <!--
-        ===================
-            FEATURE PROJECTS
-        ===================
+            ===================
+                FEATURE PROJECTS
+            ===================
         -->
     <section class="mh-featured-project image-bg featured-img-one">
         <livewire:featured-projects-section>
     </section>
 
     <!--
-        ===================
-            SKILLS
-        ===================
-        -->
+            ===================
+                SKILLS
+            ===================
+            -->
     <section class="mh-skills" id="mh-skills">
         <livewire:skills>
     </section>
 
     <!--
-        ===================
-            EXPERIENCES
-        ===================
-        -->
+            ===================
+                EXPERIENCES
+            ===================
+            -->
     <section class="mh-experince image-bg featured-img-one" id="mh-experience">
         <div class="img-color-overlay">
             <div class="container">
@@ -83,19 +83,19 @@
     </section>
 
     <!--
-        ===================
-            PORTFOLIO
-        ===================
-        -->
+            ===================
+                PORTFOLIO
+            ===================
+            -->
     <section class="mh-portfolio" id="mh-portfolio">
         <livewire:portfolio-section>
     </section>
 
     <!--
-        ===================
-            BLOG
-        ===================
-        -->
+            ===================
+                BLOG
+            ===================
+            -->
     <section class="mh-blog image-bg featured-img-two" id="mh-blog">
         <div class="img-color-overlay">
             <div class="container">
@@ -103,67 +103,17 @@
                     <div class="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
                         <h3>Featured Posts</h3>
                     </div>
-                    <div class="col-sm-12 col-md-4">
-                        <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                            <img src="{{ asset('assets-portfolio/images/b-3.png') }}" alt="" class="img-fluid">
-                            <div class="blog-inner">
-                                <h2><a href="blog-single.html">A life without the daily traffic jams</a></h2>
-                                <div class="mh-blog-post-info">
-                                    <ul>
-                                        <li><strong>Post On</strong><a href="#">24.11.19</a></li>
-                                        <li><strong>By</strong><a href="#">ThemeSpiders</a></li>
-                                    </ul>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of
-                                    a page when looking at its layout</p>
-                                <a href="blog-single.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-4">
-                        <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                            <img src="{{ asset('assets-portfolio/images/b-2.png') }} " alt="" class="img-fluid">
-                            <div class="blog-inner">
-                                <h2><a href="blog-single.html">Proportion are what’s really needed</a></h2>
-                                <div class="mh-blog-post-info">
-                                    <ul>
-                                        <li><strong>Post On</strong><a href="#">24.11.19</a></li>
-                                        <li><strong>By</strong><a href="#">ThemeSpiders</a></li>
-                                    </ul>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of
-                                    a page when looking at its layout</p>
-                                <a href="blog-single.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-4">
-                        <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                            <img src="{{ asset('assets-portfolio/images/b-1.png') }} " alt="" class="img-fluid">
-                            <div class="blog-inner">
-                                <h2><a href="blog-single.html">Mounts of paper work to remember the way</a></h2>
-                                <div class="mh-blog-post-info">
-                                    <ul>
-                                        <li><strong>Post On</strong><a href="#">24.11.19</a></li>
-                                        <li><strong>By</strong><a href="#">ThemeSpiders</a></li>
-                                    </ul>
-                                </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of
-                                    a page when looking at its layout</p>
-                                <a href="blog-single.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                    <livewire:featured-post>
                 </div>
             </div>
         </div>
     </section>
 
     <!--
-        ===================
-            Testimonial
-        ===================
-        -->
+            ===================
+                Testimonial
+            ===================
+            -->
     <section class="mh-testimonial" id="mh-testimonial">
         <div class="home-v-img">
             <div class="container">
@@ -171,84 +121,17 @@
                     <div class="col-sm-12 section-title wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
                         <h3>Client Reviews</h3>
                     </div>
-                    <div class="col-sm-12 wow fadeInUp" id="mh-client-review" data-wow-duration="0.8s"
-                        data-wow-delay="0.3s">
-                        <div class="each-client-item">
-                            <div class="mh-client-item dark-bg black-shadow-1">
-                                <img src="{{ asset('assets-portfolio/images/c-1.png') }} " alt="" class="img-fluid">
-                                <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                <h4>John Mike</h4>
-                                <span>CEO, Author.Inc</span>
-                            </div>
-                        </div>
-                        <div class="each-client-item">
-                            <div class="mh-client-item dark-bg black-shadow-1">
-                                <img src="{{ asset('assets-portfolio/images/c-1.png') }} " alt="" class="img-fluid">
-                                <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                <h4>John Mike</h4>
-                                <span>CEO, Author.Inc</span>
-                            </div>
-                        </div>
-
-                        <div class="each-client-item">
-                            <div class="mh-client-item dark-bg black-shadow-1">
-                                <img src="{{ asset('assets-portfolio/images/c-1.png') }} " alt="" class="img-fluid">
-                                <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                <h4>John Mike</h4>
-                                <span>CEO, Author.Inc</span>
-                            </div>
-                        </div>
-                        <div class="each-client-item">
-                            <div class="mh-client-item dark-bg black-shadow-1">
-                                <img src="{{ asset('assets-portfolio/images/c-1.png') }} " alt=""
-                                    class="img-fluid">
-                                <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                <h4>John Mike</h4>
-                                <span>CEO, Author.Inc</span>
-                            </div>
-                        </div>
-                        <div class="each-client-item">
-                            <div class="mh-client-item dark-bg black-shadow-1">
-                                <img src="{{ asset('assets-portfolio/images/c-1.png') }} " alt=""
-                                    class="img-fluid">
-                                <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                <h4>John Mike</h4>
-                                <span>CEO, Author.Inc</span>
-                            </div>
-                        </div>
-
-                        <div class="each-client-item">
-                            <div class="mh-client-item dark-bg black-shadow-1">
-                                <img src="{{ asset('assets-portfolio/images/c-1.png') }} " alt=""
-                                    class="img-fluid">
-                                <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                <h4>John Mike</h4>
-                                <span>CEO, Author.Inc</span>
-                            </div>
-                        </div>
-                    </div>
+                    <livewire:clients-reviews>
                 </div>
             </div>
         </div>
     </section>
 
     <!--
-        ===================
-            FOOTER 3
-        ===================
-        -->
+            ===================
+                FOOTER 3
+            ===================
+            -->
     <footer class="mh-footer mh-footer-3" id="mh-contact">
         <div class="container-fluid">
             <div class="row section-separator">
@@ -302,8 +185,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                <form id="contactForm" class="single-form quate-form wow fadeInUp"
-                                    data-toggle="validator">
+                                <form id="contactForm" class="single-form quate-form wow fadeInUp" data-toggle="validator">
                                     <div id="msgSubmit" class="h3 text-center hidden"></div>
                                     <div class="row">
                                         <div class="col-sm-12">

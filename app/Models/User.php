@@ -94,4 +94,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Portfolio::class, 'user_id', 'id');
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(ClientReview::class, 'user_id', 'id');
+    }
+
+    public function social_medias()
+    {
+        return $this->hasMany(SocialMedia::class, 'user_id', 'id');
+    }
 }

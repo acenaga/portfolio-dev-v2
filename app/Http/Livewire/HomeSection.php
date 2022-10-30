@@ -11,7 +11,9 @@ class HomeSection extends Component
     public function render()
     {
 
-        $user = User::find(1);
+        $user = User::find(1)->with('social_medias')->first();
+
+        // dd($user);
 
         return view('livewire.home-section', compact('user'));
     }
