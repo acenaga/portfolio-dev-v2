@@ -27,7 +27,7 @@
 <!-- Fancybox js-->
 <script src="{{ asset('assets-portfolio/plugins/js/jquery.fancybox.min.js') }} "></script>
 <!-- Map api -->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyAI-Uk1YrQ6Xr3X30pKmmI3sTRdn8Fz-Po"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{ env('GOOGLE_MAPS_API_KEY') }}"></script>
 <!-- isotope js-->
 <script src="{{ asset('assets-portfolio/plugins/js/isotope.pkgd.js') }} "></script>
 <script src="{{ asset('assets-portfolio/plugins/js/packery-mode.pkgd.js') }} "></script>
