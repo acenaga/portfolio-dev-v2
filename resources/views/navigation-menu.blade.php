@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('education') }}" :active="request()->routeIs('education')">
+                    <x-jet-nav-link href="{{ route('education.index') }}" :active="request()->routeIs('education')">
                         {{ __('Education') }}
                     </x-jet-nav-link>
                 </div>
@@ -196,11 +196,29 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('education') }}" :active="request()->routeIs('education')">
+            <x-jet-responsive-nav-link href="{{ route('education.index') }}" :active="request()->routeIs('education')">
                 {{ __('Education') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('work-experience') }}" :active="request()->routeIs('work-experience')">
-                {{ __('Education') }}
+                {{ __('Work Experience') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('services') }}" :active="request()->routeIs('services')">
+                {{ __('Services') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('featured-projects') }}" :active="request()->routeIs('featured-projects')">
+                {{ __('Featured projects') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('technical-professional-skills') }}" :active="request()->routeIs('technical-professional-skills')">
+                {{ __('Skills') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('portfolio-items') }}" :active="request()->routeIs('portfolio-items')">
+                {{ __('Postfolio') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('posts-items') }}" :active="request()->routeIs('posts-items')">
+                {{ __('Posts') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('clients-reviews') }}" :active="request()->routeIs('Clients Reviews-reviews')">
+                {{ __('Clients Reviews') }}
             </x-jet-responsive-nav-link>
         </div>
 
