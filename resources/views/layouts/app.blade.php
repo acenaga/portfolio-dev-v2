@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    @notifyCss
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
-        @livewireStyles
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased bg-light">
-        <x-jet-banner />
-        @livewire('navigation-menu')
+    @livewireStyles
 
-        <!-- Page Heading -->
-        <header class="d-flex py-3 bg-white shadow-sm border-bottom">
-            <div class="container">
-                {{ $header }}
-            </div>
-        </header>
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}" defer></script>
+</head>
 
-        <!-- Page Content -->
-        <main class="container my-5">
-            {{ $slot }}
-        </main>
+<body class="font-sans antialiased bg-light">
+    <x-jet-banner />
+    @livewire('navigation-menu')
 
-        @stack('modals')
+    <!-- Page Heading -->
+    <header class="d-flex py-3 bg-white shadow-sm border-bottom">
+        <div class="container">
+            {{ $header }}
+        </div>
+    </header>
 
-        @livewireScripts
+    <!-- Page Content -->
+    <main class="container my-5">
+        {{ $slot }}
+    </main>
 
-        @stack('scripts')
-    </body>
+    @stack('modals')
+
+    @livewireScripts
+
+    @stack('scripts')
+    <x:notify-messages />
+    @notifyJs
+
+</body>
+
 </html>
