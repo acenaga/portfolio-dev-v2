@@ -10,8 +10,8 @@
                             <span>Hello I'm</span>
                         @endif
                     </div>
-                    @if ($user->name)
-                        <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name }}</h2>
+                    @if ($user->name())
+                        <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name() }}</h2>
                     @else
                         <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Alex Johnson</h2>
                     @endif

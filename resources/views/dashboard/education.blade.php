@@ -6,8 +6,8 @@
     </x-slot>
 
     <div class="row">
-        <div class="col-12">
-            <h1>Education</h1>
+        <div class="col-12 d-flex justify-content-center">
+            <a href="{{ route('education.create') }}" class="btn btn-primary">Add Education</a>
         </div>
         @foreach ($educations as $education)
             <div class="col-lg-3 col-md-6 col-12 p-3">
@@ -22,8 +22,8 @@
                             <time>{{ $education->end_date }}</time>
                         </p>
                         <p class="card-text">{{ $education->description }}</p>
-                        <a href="#" class="btn btn-warning">Edit</a>
                         <form action="{{ route('education.destroy', $education->id) }}" method="POST">
+                            <a href="{{ route('education.edit', $education->id) }}" class="btn btn-warning">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>

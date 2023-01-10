@@ -24,8 +24,14 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
+        'profession',
+        'phone',
+        'greeting',
+        'address',
+        'about_me',
         'password',
     ];
 
@@ -57,6 +63,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+        //'about_me_picture'
     ];
 
     public function professional_skills()
@@ -108,5 +115,10 @@ class User extends Authenticatable
     public function social_medias()
     {
         return $this->hasMany(SocialMedia::class, 'user_id', 'id');
+    }
+
+    public function name()
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 }

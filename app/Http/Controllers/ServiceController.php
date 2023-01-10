@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Education;
+use App\Models\Page;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class EducationController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,18 @@ class EducationController extends Controller
      */
     public function index()
     {
-        $educations = Auth::user()->education;
+        $services = Auth::user()->services;
+        // notify()->success('Welcome to Laravel Notify ⚡️')
+        // notify()->success('Welcome to Laravel Notify ⚡️', 'My custom title');
+        // connectify('success', 'Connection Found', 'Success Message Here');
+        // drakify('success'); // for success alert
+        // drakify('ups error found'); // for error alert
+        // smilify('success', 'You are successfully reconnected');
+        // emotify('success', 'You are awesome, your data was successfully created');
         // dd($educations);
-        return view('dashboard.education', compact('educations'));
+
+        //dd($services);
+        return view('dashboard.services', compact('services'));
     }
 
     /**
@@ -27,7 +37,7 @@ class EducationController extends Controller
      */
     public function create()
     {
-        return view('dashboard.education.create');
+        return view('dashboard.service.create');
     }
 
     /**
@@ -43,17 +53,17 @@ class EducationController extends Controller
             'title' => 'required | min:3 | max:40',
 
         ]);
-        Education::create(request()->all());
-        return redirect()->route('education.index');
+        Service::create(request()->all());
+        return redirect()->route('service.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Page $page)
     {
         //
     }
@@ -66,21 +76,21 @@ class EducationController extends Controller
      */
     public function edit($id)
     {
-        $education = Education::find($id);
-        return view('dashboard.education.edit', compact('education'));
+        $service = Service::find($id);
+        return view('dashboard.service.edit', compact('service'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Education $education)
+    public function update(Request $request, Service $service)
     {
-        $education->update(request()->all());
-        return redirect()->route('education.index');
+        $service->update(request()->all());
+        return redirect()->route('service.index');
     }
 
     /**
@@ -91,8 +101,7 @@ class EducationController extends Controller
      */
     public function destroy($id)
     {
-
-        Education::find($id)->delete();
+        Service::find($id)->delete();
         return redirect()->back();
     }
 }

@@ -7,10 +7,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    @notifyCss
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href=" {{ asset('assets-portfolio/icons/font-awesome-4.7.0/css/font-awesome.min.css') }} ">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -42,9 +44,23 @@
     @livewireScripts
 
     @stack('scripts')
-    <x:notify-messages />
-    @notifyJs
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initAutocomplete">
+    </script>
+    <script>
+        let autocomplete;
 
+        function initAutocomplete() {
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('address'), {
+                    types: ['stablishment'],
+                    componentRestrictions: {
+                        'country': ['ar']
+                    },
+                    fields: ['place_id', 'geometry', 'name']
+                });
+        }
+    </script>
 </body>
 
 </html>

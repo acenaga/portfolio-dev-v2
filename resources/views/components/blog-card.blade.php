@@ -5,7 +5,7 @@
         <div class="mh-blog-post-info">
             <ul>
                 <li><strong>Post On</strong><a href="#">{{ $post->updated_at }}</a></li>
-                <li><strong>By</strong><a href="#">{{ $user->name }}</a></li>
+                <li><strong>By</strong><a href="#">{{ $user->name() }}</a></li>
                 <li><strong>Category</strong><a href="#">Categorias</a></li>
             </ul>
         </div>

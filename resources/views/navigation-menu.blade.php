@@ -18,6 +18,18 @@
                 <x-jet-nav-link href="{{ route('education.index') }}" :active="request()->routeIs('education.index')">
                     {{ __('Education') }}
                 </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('service.index') }}" :active="request()->routeIs('service.index')">
+                    {{ __('Services') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('professional-skill.index') }}" :active="request()->routeIs('professional-skill.index')">
+                    {{ __('Professional Skills') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('technical-skill.index') }}" :active="request()->routeIs('technical-skill.index')">
+                    {{ __('Technical Skills') }}
+                </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('client-review.index') }}" :active="request()->routeIs('client-review.index')">
+                    {{ __('Client Reviews') }}
+                </x-jet-nav-link>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -73,9 +85,9 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <img class="rounded-circle" width="32" height="32"
-                                    src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                    src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name() }}" />
                             @else
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->name() }}
 
                                 <svg class="ms-2" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                     fill="currentColor">

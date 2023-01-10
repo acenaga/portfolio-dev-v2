@@ -18,7 +18,7 @@ class CreateServicesTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('icon')->nullable();
 
             $table->timestamps();
