@@ -21,6 +21,7 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/main.js') }}" defer></script>
 </head>
 
 <body class="font-sans antialiased bg-light">
@@ -61,6 +62,7 @@
                 });
         }
     </script>
+    <script src="{{ asset('js/image.js') }} "></script>
 </body>
 
 </html>

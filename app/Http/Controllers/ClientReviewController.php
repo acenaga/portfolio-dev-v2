@@ -26,6 +26,7 @@ class ClientReviewController extends Controller
      */
     public function create()
     {
+        return view('dashboard.client-review.create');
     }
 
     /**
