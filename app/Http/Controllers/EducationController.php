@@ -39,10 +39,10 @@ class EducationController extends Controller
     public function store(Request $request)
     {
         //dd(request()->all());
-        $request->validate([
-            'title' => 'required | min:3 | max:40',
+        // $request->validate([
+        //     'title' => 'required | min:3 | max:40',
 
-        ]);
+        // ]);
         Education::create(request()->all());
         return redirect()->route('education.index');
     }

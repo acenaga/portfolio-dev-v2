@@ -9,8 +9,25 @@ class ClientReview extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'position',
+        'company',
+        'url',
+        'review',
+        'image',
+        'user_id'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getGetimageAttribute($key)
+    {
+        if ($this->image) {
+            return url("storage/$this->image");
+        }
     }
 }

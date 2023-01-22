@@ -37,6 +37,20 @@ class ClientReviewController extends Controller
      */
     public function store(Request $request)
     {
+        //dd(request()->all());
+        // $request->validate([
+        //     'title' => 'required | min:3 | max:40',
+
+        // ]);
+        $review = ClientReview::create(request()->all());
+
+        //imagen
+        if ($request->file('image')) {
+            $review->image = $request->file('image')->store('review', 'public');
+            $review->save();
+        }
+
+        return back()->with('status', 'Review created successfully');
     }
 
     /**
