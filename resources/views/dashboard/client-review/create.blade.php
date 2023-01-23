@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="crop" class="btn btn-primary">Crop</button>
+                    <button type="button" onclick="cropImage()" id="crop" class="btn btn-primary">Crop</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
