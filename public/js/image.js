@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const url = window.location.pathname;
 
     const myModal = new bootstrap.Modal('#modal-crop');
 
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("upload_image").addEventListener("change", function(event) {
 
+        console.log(url);
 
         var files = event.target.files;
 
@@ -31,9 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     modalCrop.addEventListener('show.bs.modal', function () {
+            var ratio;
+            if(url.includes('client-review')){
+                ratio = 1/1;
+            }else if(url.includes('some')){
+                ratio = 16/9;
+            }
             const cropper = new Cropper(image ,{
-                aspectRatio: 1/1,
-                viewMode:3,
+                aspectRatio: ratio,
+                viewMode:2,
                 preview: '.preview'
             });
         }).addEventListener('hidden.bs.modal', function (){

@@ -1,5 +1,9 @@
 <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-    <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="img-fluid">
+    @if (str_contains($post->featured_image, 'http'))
+        <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="img-fluid">
+    @else
+        <img src="{{ $post->get_image }} " alt="{{ $post->title }}" class="img-fluid">
+    @endif
     <div class="blog-inner">
         <h2><a href="blog-single.html">{{ $post->title }}</a></h2>
         <div class="mh-blog-post-info">

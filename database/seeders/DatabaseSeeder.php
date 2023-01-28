@@ -10,6 +10,7 @@ use App\Models\PortfolioCategory;
 use App\Models\PortfolioImage;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\PostImage;
 use App\Models\ProfessionalSkill;
 use App\Models\Service;
 use App\Models\SocialMedia;
@@ -43,5 +44,6 @@ class DatabaseSeeder extends Seeder
         Post::factory(10)->create();
         SocialMedia::factory(5)->create();
         ClientReview::factory(5)->create();
+        PostImage::factory(40)->create();
     }
 }

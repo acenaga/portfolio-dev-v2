@@ -26,6 +26,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{ mix('js/main.js') }}" defer></script>
+    <script src="//cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
 </head>
 
 <body class="font-sans antialiased bg-light">
@@ -70,6 +71,13 @@
         integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/image.js') }} "></script>
+    <script>
+        CKEDITOR.replace('content', {
+            filebrowserUploadUrl: "{{ route('ckeditor.image-upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form',
+            height: 600,
+        });
+    </script>
 </body>
 
 </html>
