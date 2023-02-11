@@ -16,7 +16,7 @@ class WorkExperienceController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $experiences = WorkExperience::with('responsibilities')->where('user_id',$user_id )->get();
+        $experiences = WorkExperience::with('responsibilities')->where('user_id', $user_id)->get();
 
         //dd($experiences);
         return view('dashboard.work-experience', compact('experiences'));
@@ -29,7 +29,7 @@ class WorkExperienceController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.work-experiences.create');
     }
 
     /**

@@ -6,8 +6,11 @@
     </x-slot>
 
     <div class="row justify-content-center">
-
         <div class="col-12 col-md-6 col-lg-4">
+            <livewire:create-experience />
+        </div>
+
+        {{-- <div class="col-12 col-md-6 col-lg-4">
             <form action="{{ route('work-experiences.store') }}" method="POST">
                 <div class="mb-3">
                     <label for="degree-obtain" class="form-label">Degree Obtain</label>
@@ -56,7 +59,7 @@
                 <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-        </div>
+        </div> --}}
 
     </div>
 </x-app-layout>

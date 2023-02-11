@@ -21,9 +21,9 @@ class WorkExperienceFactory extends Factory
             'company_name' => $this->faker->word,
             'description' => $this->faker->sentence,
             'url' => $this->faker->url,
-            'start_date' => $this->faker->year,
-            'end_date'  => $this->faker->year,
-            'user_id'=> 1
+            'start_date' => $this->faker->date,
+            'end_date'  => $this->faker->date,
+            'user_id' => 1
         ];
     }
 }

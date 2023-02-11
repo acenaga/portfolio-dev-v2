@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('description')->nullable();
             $table->string('url')->nullable();
-            $table->year('start_date')->nullable();
-            $table->year('end_date')->nullable();
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
 
             $table->timestamps();
 

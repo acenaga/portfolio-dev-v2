@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const url = window.location.pathname;
+    // var url = window.location.pathname;
 
     const myModal = new bootstrap.Modal('#modal-crop');
 
