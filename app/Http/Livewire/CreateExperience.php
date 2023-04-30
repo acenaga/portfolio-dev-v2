@@ -3,17 +3,28 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\WorkExperience;
+use App\Models\WorkResponsibility;
 
 class CreateExperience extends Component
 {
-    public $position, $company_name, $description, $url, $start_date, $end_date;
+    public $position;
+    public $company_name;
+    public $description;
+    public $url;
+    public $start_date;
+    public $end_date;
+    public $experienceAdded = '';
+    public $responsibilities = [];
+    public $responsibilityDescription;
+    public $experienceAddedId;
 
     public function render()
     {
         return view('livewire.create-experience');
     }
 
-    public function create()
+    public function createExperience()
     {
         $this->validate([
             'position' => 'required',
@@ -24,8 +35,12 @@ class CreateExperience extends Component
             'end_date' => 'required',
         ]);
 
+        $this->start_date = date('Y', strtotime($this->start_date));
 
-        $experience = auth()->user()->experiences()->create([
+        $this->end_date = date('Y', strtotime($this->end_date));
+
+        $this->experienceAdded = WorkExperience::create([
+            'user_id' => auth()->user()->id,
             'position' => $this->position,
             'description' => $this->description,
             'url' => $this->url,
@@ -34,10 +49,29 @@ class CreateExperience extends Component
             'end_date' => $this->end_date,
         ]);
 
-        $this->reset();
-
         session()->flash('message', 'Experience added with success!');
 
-        //$this->emit('experienceAdded', $experience);
+        $this->experienceAddedId = $this->experienceAdded->id;
+
+    }
+
+    public function addingResponsibilities()
+    {
+
+        $this->validate([
+            'responsibilityDescription' => 'required',
+        ]);
+
+        WorkResponsibility::create([
+            'work_experience_id' => $this->experienceAddedId,
+            'description' => $this->responsibilityDescription,
+        ]);
+
+        $this->responsibilities[] = $this->responsibilityDescription;
+
+        $this->responsibilityDescription = '';
+
+        session()->flash('message', 'Responsibilities added with success!');
+
     }
 }

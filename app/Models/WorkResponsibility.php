@@ -10,6 +10,11 @@ class WorkResponsibility extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'work_experience_id',
+        'description',
+    ];
+
 
     public function experience()
     {
