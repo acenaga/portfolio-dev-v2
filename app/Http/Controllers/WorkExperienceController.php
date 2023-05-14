@@ -62,7 +62,10 @@ class WorkExperienceController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $experience = WorkExperience::find($id);
+
+        return view('dashboard.work-experiences.edit', compact('experience'));
     }
 
     /**

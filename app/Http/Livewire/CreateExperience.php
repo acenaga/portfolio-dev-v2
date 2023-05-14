@@ -35,10 +35,6 @@ class CreateExperience extends Component
             'end_date' => 'required',
         ]);
 
-        $this->start_date = date('Y', strtotime($this->start_date));
-
-        $this->end_date = date('Y', strtotime($this->end_date));
-
         $this->experienceAdded = WorkExperience::create([
             'user_id' => auth()->user()->id,
             'position' => $this->position,
