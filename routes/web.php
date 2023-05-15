@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfessionalSkillController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TechnicalSkillController;
 use App\Http\Controllers\ClientReviewController;
+use App\Http\Controllers\PortfolioCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WorkExperienceController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::resource('client-review', ClientReviewController::class);
     Route::resource('post-items', PostController::class);
     Route::resource('work-experiences', WorkExperienceController::class);
+    Route::get('portfolio-categories', PortfolioCategoryController::class)->name('portfolio-category');
 
     Route::controller(CKEditorController::class)->group(
         function () {

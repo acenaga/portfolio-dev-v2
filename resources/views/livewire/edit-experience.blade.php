@@ -50,7 +50,7 @@
         <form class="mt-3" wire:submit.prevent="editResponsibilities">
             @foreach ($responsibilities as $index => $responsibility)
                 <div wire:key="responsibility-field-{{ $responsibility->id }}" class="mb-3 row">
-                    <textarea class="form-control"wire:model="responsibilities.{{$index}}.description" id="responsibilities.{{$index}}.description"></textarea>
+                    <textarea class="form-control" wire:model="responsibilities.{{$index}}.description" id="responsibilities.{{$index}}.description"></textarea>
                     @error('responsibilityDescription')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror

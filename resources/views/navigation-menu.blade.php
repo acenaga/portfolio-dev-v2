@@ -36,6 +36,9 @@
                 <x-jet-nav-link href="{{ route('work-experiences.index') }}" :active="request()->routeIs('work-experiences.index')">
                     {{ __('Work Experiences') }}
                 </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('portfolio-category') }}" :active="request()->routeIs('portfolio-category')">
+                    {{ __('Portfolio Categories') }}
+                </x-jet-nav-link>
             </ul>
 
             <!-- Right Side Of Navbar -->
