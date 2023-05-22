@@ -13,7 +13,6 @@ class ClientsReviews extends Component
     {
         $user = User::find(1)->with('reviews')->first();
 
-        // dd($user);
 
         return view('livewire.clients-reviews', compact('user'));
     }
