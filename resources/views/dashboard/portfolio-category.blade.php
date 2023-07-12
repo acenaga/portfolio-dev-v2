@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <h1>{{ $title }}</h1>
+            <h1>{{ $title }} asdasd</h1>
         </div>
         <livewire:crud-portfolio-category>
 

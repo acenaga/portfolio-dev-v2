@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'first_name',
+        'name',
         'last_name',
         'email',
         'profession',
@@ -119,6 +119,6 @@ class User extends Authenticatable
 
     public function name()
     {
-        return $this->first_name . ' ' . $this->last_name;
+        return $this->name . ' ' . $this->last_name;
     }
 }

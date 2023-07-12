@@ -62,10 +62,10 @@
         <div class="w-md-75">
             <!-- First Name -->
             <div class="mb-3">
-                <x-jet-label for="first_name" value="{{ __('First Name') }}" />
-                <x-jet-input id="first_name" type="text" class="{{ $errors->has('first_name') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.first_name" autocomplete="first_name" />
-                <x-jet-input-error for="first_name" />
+                <x-jet-label for="name" value="{{ __('First Name') }}" />
+                <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}"
+                    wire:model.defer="state.name" autocomplete="name" />
+                <x-jet-input-error for="name" />
             </div>
 
             <!-- Last Name -->

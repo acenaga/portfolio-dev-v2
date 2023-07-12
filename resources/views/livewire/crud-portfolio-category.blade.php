@@ -31,7 +31,7 @@
 
     <div class="col-md-12 col-lg-4">
         <form wire:submit.prevent="addCategory()">
-            <label for="categoryName" class="form-label">Responsibility</label>
+            <label for="categoryName" class="form-label">Category</label>
             <input type="text" class="form-control" wire:model="categoryName" id="categoryName"></input>
             @error('categoryName')
                 <span class="text-danger">{{ $message }}</span>

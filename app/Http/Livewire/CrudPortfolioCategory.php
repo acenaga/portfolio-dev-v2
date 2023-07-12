@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\PortfolioCategory;
+use App\Models\Portfolio;
+
 
 class CrudPortfolioCategory extends Component
 {
@@ -19,6 +21,11 @@ class CrudPortfolioCategory extends Component
     public function mount(){
 
         $this->categories = PortfolioCategory::all();
+
+        //TODO retrieve the number of portfolio items using the category
+        //$this->categories = PortfolioCategory::withCount(Portfolio::all())->get();
+
+
 
     }
 
@@ -69,11 +76,21 @@ class CrudPortfolioCategory extends Component
     }
 
     public function deleteCategory($id){
-        PortfolioCategory::find($id)->delete();
 
-        $this->categories = PortfolioCategory::all();
+        $portfolio_items = Portfolio::where('category_id', $id )->get();
 
-        session()->flash('message', 'Category delete successful!');
+        //dd(count($portfolio_items));
+
+        if(count($portfolio_items) > 0){
+            $this->categories = PortfolioCategory::all();
+            session()->flash('message', 'the category has items associated');
+        } else {
+            PortfolioCategory::find($id)->delete();
+            $this->categories = PortfolioCategory::all();
+            session()->flash('message', 'Category delete successful!');
+        }
+
+
 
     }
 }
