@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Portfolio extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'title',
+        'sub_title',
+        'description',
+        'link',
+        'image',
+        'caption_image',
+        'keywords',
+        'category_id'
+
+    ];
 
     public function category()
     {
@@ -27,5 +39,12 @@ class Portfolio extends Model
     public function keywords_skills()
     {
         return explode(' ', $this->keywords);
+    }
+
+    public function getGetImageAttribute($key)
+    {
+        if ($this->image) {
+            return url("storage/$this->image");
+        }
     }
 }

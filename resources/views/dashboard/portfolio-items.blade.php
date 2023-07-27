@@ -9,7 +9,7 @@
         <div class="col-12">
             <h1 class="mb-4">Portfolio Items</h1>
         </div>
-        <div class="class="col-12 d-flex justify-content-center"">
+        <div class="col-12 d-flex justify-content-center">
             <livewire:crud-portfolio-item>
         </div>
 
