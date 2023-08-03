@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create();
+        //User::factory(1)->create();
         TechnicalSkill::factory(5)->create();
         ProfessionalSkill::factory(5)->create();
         Service::factory(6)->create();

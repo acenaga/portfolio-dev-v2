@@ -4,5 +4,18 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    <x-jet-welcome />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-12">
+                <div class="form-check form-switch">
+                    <p class="h3"> Sections Control</p>
+                    @foreach ($sections as $section)
+                        @livewire('section-panel', ['model' => $section, 'field' => 'isActive'], key($user->id))
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {{-- <x-jet-welcome /> --}}
 </x-app-layout>

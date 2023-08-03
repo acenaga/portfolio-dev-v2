@@ -34,6 +34,15 @@ class CreateUsersTable extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            [
+                'name' => 'carlos', 'email' => 'mundofuturoca@gmail.com',
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+                'email_verified_at' => now()
+            ]
+
+        ]);
     }
 
     /**
