@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class navigation extends Component
@@ -11,7 +12,9 @@ class navigation extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+        public object $sections,
+    )
     {
         //
     }
@@ -21,7 +24,7 @@ class navigation extends Component
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
-    public function render()
+    public function render(): View
     {
         return view('components.navigation');
     }

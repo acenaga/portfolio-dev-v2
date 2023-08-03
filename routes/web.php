@@ -9,7 +9,10 @@ use App\Http\Controllers\ClientReviewController;
 use App\Http\Controllers\PortfolioCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WorkExperienceController;
+use App\Models\Section;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -28,14 +31,38 @@ Route::get('/', function () {
 });
 
 Route::get('portfolio', function () {
-    return view('portfolio.home-portfolio');
+    $user = User::find(1);
+
+    if($user){
+        $user = $user->with(
+            'professional_skills',
+            'technical_skills',
+            'services',
+            'featuredProjects',
+            'education',
+            'experiences',
+            'portfolios',
+            'posts',
+            'reviews',
+            'social_medias',
+            'sections'
+        )
+        ->get();
+        $user = $user[0];
+        $sections = $user->sections;
+
+        return view('portfolio.home-portfolio', compact('user', 'sections'));
+    }
+
+    return view('working');
 });
 
 
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $sections = Section::all();
+        return view('dashboard', compact('sections'));
     })->name('dashboard');
     Route::get('/featured-projects', function () {
         return view('dashboard.featured-projects');

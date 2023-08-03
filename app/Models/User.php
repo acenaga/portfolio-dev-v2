@@ -117,6 +117,11 @@ class User extends Authenticatable
         return $this->hasMany(SocialMedia::class, 'user_id', 'id');
     }
 
+    public function sections()
+    {
+        return $this->hasMany(Section::class, 'user_id', 'id');
+    }
+
     public function name()
     {
         return $this->name . ' ' . $this->last_name;

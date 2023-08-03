@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name', 100);
-            $table->boolean('status')->default(false);
+            $table->boolean('isActive')->default(false);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')
                   ->on('users')->onDelete('cascade');
@@ -24,12 +24,15 @@ return new class extends Migration
         });
 
         DB::table('sections')->insert([
-            ['name' => 'about', 'status' => false, 'user_id' => 1, 'created_at' => now()],
-            ['name' => 'skills', 'status' => false, 'user_id' => 1, 'created_at' => now()],
-            ['name' => 'experiences', 'status' => false, 'user_id' => 1, 'created_at' => now()],
-            ['name' => 'portfolio', 'status' => false, 'user_id' => 1, 'created_at' => now()],
-            ['name' => 'blog', 'status' => false, 'user_id' => 1, 'created_at' => now()],
-            ['name' => 'contact / footer', 'status' => false, 'user_id' => 1, 'created_at' => now()]
+            ['name' => 'about', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'service', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'featured projects', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'skills', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'experiences', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'portfolio', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'blog', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'testimonial', 'isActive' => false, 'user_id' => 1, 'created_at' => now()],
+            ['name' => 'contact / footer', 'isActive' => false, 'user_id' => 1, 'created_at' => now()]
 
         ]);
     }
