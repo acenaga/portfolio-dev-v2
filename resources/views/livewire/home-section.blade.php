@@ -65,7 +65,7 @@
                 <div class="hero-img wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
                     <div class="img-border">
                         @if ($user->profile_photo_path)
-                            <img src="{{ $user->profile_photo_path }}" alt="" class="img-fluid">
+                            <img src="{{ $user->profile_picture() }}" alt="" class="img-fluid">
                         @else
                             <img src="{{ asset('assets-portfolio/images/hero.png') }}" alt="" class="img-fluid">
                         @endif

@@ -119,8 +119,8 @@
             <!-- About Me -->
             <div class="mb-3">
                 <x-jet-label for="about_me" value="{{ __('About Me') }}" />
-                <x-jet-input id="about_me" type="text" class="{{ $errors->has('about_me') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.about_me" />
+                <textarea name="" id="about_me" rows="7" class="{{ $errors->has('about_me') ? 'is-invalid' : '' }} form-control pac-target-input"
+                    wire:model.defer="state.about_me"></textarea>
                 <x-jet-input-error for="about_me" />
             </div>
         </div>

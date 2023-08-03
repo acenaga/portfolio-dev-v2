@@ -126,4 +126,11 @@ class User extends Authenticatable
     {
         return $this->name . ' ' . $this->last_name;
     }
+
+    public function profile_picture()
+    {
+        if ($this->profile_photo_path) {
+            return url("storage/$this->profile_photo_path");
+        }
+    }
 }
