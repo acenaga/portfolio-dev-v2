@@ -109,7 +109,7 @@ class CrudPortfolioItem extends Component
             'caption_image' => $this->caption_image,
             'keywords' => $this->keywords,
             'category_id' => $this->category_id
-        ]);;
+        ]);
 
 
         session()->flash('message', 'Portfolio Item Edit Success!');

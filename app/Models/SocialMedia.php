@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class SocialMedia extends Model
 {
+    protected $fillable = [
+        'name',
+        'icon',
+        'url',
+        'user_id'
+    ];
+
     use HasFactory;
 }

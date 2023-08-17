@@ -36,6 +36,9 @@
                 <x-jet-nav-link href="{{ route('work-experiences.index') }}" :active="request()->routeIs('work-experiences.index')">
                     {{ __('Work Experiences') }}
                 </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('rrss') }}" :active="request()->routeIs('rrss')">
+                    {{ __('Socials Links') }}
+                </x-jet-nav-link>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
