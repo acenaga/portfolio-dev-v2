@@ -70,6 +70,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/portfolio-items', function () {
         return view('dashboard.portfolio-items');
     })->name('portfolio-items');
+    Route::get('/rrss', function () {
+        return view('dashboard.rrss');
+    })->name('rrss');
 
     Route::resource('education', EducationController::class);
     Route::resource('service', ServiceController::class);
