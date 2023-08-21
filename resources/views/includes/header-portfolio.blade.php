@@ -24,8 +24,10 @@
 
     <!-- Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href=" {{ asset('assets-portfolio/icons/font-awesome-4.7.0/css/font-awesome.min.css') }} ">
+    <!-- Font Awesome local -->
+    {{-- <link rel="stylesheet" href=" {{ asset('assets-portfolio/icons/font-awesome-4.7.0/css/font-awesome.min.css') }} "> --}}
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/8bf5f09e87.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets-portfolio/plugins/css/bootstrap.min.css') }}">
     <!-- Animate CSS-->
