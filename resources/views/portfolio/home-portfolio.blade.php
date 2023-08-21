@@ -130,8 +130,7 @@
                                                 <div class="each-info media-body">
                                                     <h4>Address</h4>
                                                     <address>
-                                                        5th Avenue, 34th floor, <br>
-                                                        New york
+                                                        {{ $user->address }}
                                                     </address>
                                                 </div>
                                             </div>
@@ -144,8 +143,7 @@
                                                 </div>
                                                 <div class="each-info media-body">
                                                     <h4>Email</h4>
-                                                    <a href="mailto:yourmail@email.com">yourmail@email.com</a><br>
-                                                    <a href="mailto:yourmail@email.com">yourmail@email.com</a>
+                                                    <a href="mailto:{{ $user->email }}">{{ $user->email }}</a><br>
                                                 </div>
                                             </div>
                                         </div>
@@ -157,8 +155,7 @@
                                                 </div>
                                                 <div class="each-info media-body">
                                                     <h4>Phone</h4>
-                                                    <a href="callto:(880)-8976-987">(880)-8976-987</a><br>
-                                                    <a href="callto:(880)-8976-987">(880)-8976-987</a>
+                                                    <a href="callto:{{ $user->phone }}">{{ $user->phone }}</a><br>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,15 +196,17 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="text-left text-xs-center">
-                                                    <p><a href="templateshub.net">Templates Hub</a></p>
+                                                    <p><a target="_blank" href="templateshub.net">Templates Hub</a></p>
+                                                    <p><a target="_blank" href="https://laravel.com">Powered by Laravel <i class="fab fa-laravel fa-lg"></i></p>
+                                                    <p><a target="_blank" href="https://digitalocean.com">Powered by Digital Ocean <i class="fab fa-digital-ocean fa-lg"></i></p>
+                                                    <p><a target="_blank" href="https://cloudflare.com">Powered by Cloudflare <i class="fab fa-cloudflare fa-lg"></i></p>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <ul class="social-icon">
-                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                                    @foreach ($user->social_medias as $social_media)
+                                                        <x-social-media-item :social="$social_media" />
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
