@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     /*
@@ -36,7 +38,7 @@ return [
     |
     */
 
-    'timeout'   => 15000,
+    'timeout' => 15000,
 
     /*
     |--------------------------------------------------------------------------
@@ -52,9 +54,9 @@ return [
         // An example preset 'user updated' Connectify notification.
         'user-updated' => [
             'message' => 'The user has been updated successfully.',
-            'type'    => 'success',
-            'model'   => 'connect',
-            'title'   => 'User Updated',
+            'type' => 'success',
+            'model' => 'connect',
+            'title' => 'User Updated',
         ],
     ],
 

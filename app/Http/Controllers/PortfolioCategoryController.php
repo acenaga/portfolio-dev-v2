@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
@@ -12,8 +14,8 @@ final class PortfolioCategoryController
 
         return view(
             view: 'dashboard.portfolio-category',
-            data:[
-                'title' => 'Portfolio Categories'
+            data: [
+                'title' => 'Portfolio Categories',
             ]
         );
     }

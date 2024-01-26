@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\ClientReview;
@@ -15,10 +17,10 @@ use App\Models\ProfessionalSkill;
 use App\Models\Service;
 use App\Models\SocialMedia;
 use App\Models\TechnicalSkill;
-use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\WorkExperience;
 use App\Models\WorkResponsibility;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\WorkExperience;
 use App\Models\WorkResponsibility;
+use Livewire\Component;
 
 class CreateExperience extends Component
 {

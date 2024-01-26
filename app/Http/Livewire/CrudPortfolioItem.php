@@ -1,19 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
 use App\Models\Portfolio;
-use App\Models\PortfolioImage;
 use App\Models\PortfolioCategory;
-use Illuminate\Support\Facades\Auth;
+use App\Models\PortfolioImage;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-
 class CrudPortfolioItem extends Component
 {
-
     use WithFileUploads;
 
     public $items;
@@ -30,7 +29,8 @@ class CrudPortfolioItem extends Component
     public $images = [];
     public $itemId;
 
-    public function mount(){
+    public function mount()
+    {
 
         $this->items = Portfolio::all();
 
@@ -39,7 +39,6 @@ class CrudPortfolioItem extends Component
         //dd($this->items[0]->portfolio_images()->get());
         //TODO retrieve the number of portfolio items using the category
         //$this->categories = PortfolioCategory::withCount(Portfolio::all())->get();
-
 
     }
 
@@ -55,7 +54,7 @@ class CrudPortfolioItem extends Component
         session()->flash('message', 'Item has deleted');
     }
 
-    function editItem($id)
+    public function editItem($id)
     {
 
         $this->itemId = $id;
@@ -66,16 +65,16 @@ class CrudPortfolioItem extends Component
         $this->title = $portfolioItem->title;
         $this->sub_title = $portfolioItem->sub_title;
         $this->description = $portfolioItem->description;
-        if(strpos($portfolioItem->image, "via")){
+        if (strpos($portfolioItem->image, 'via')) {
             $this->image = $portfolioItem->image;
-        }else{
+        } else {
             $this->image = $portfolioItem->get_image;
         }
         $this->url = $portfolioItem->link;
         $this->caption_image = $portfolioItem->caption_image;
         $this->keywords = $portfolioItem->keywords;
         $this->category_id = $portfolioItem->category_id;
-        if(count($portfolioItem->portfolio_images()->get()) >= 1){
+        if (count($portfolioItem->portfolio_images()->get()) >= 1) {
             $this->images = $portfolioItem->portfolio_images()->get();
         }
 
@@ -91,12 +90,12 @@ class CrudPortfolioItem extends Component
             'url' => 'required',
             'caption_image' => 'required',
             'keywords' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
         ]);
-        if($this->image){
+        if ($this->image) {
             Storage::disk('public')->delete($this->image);
             $imageUpload = $this->image->store('files', 'public');
-        }else{
+        } else {
             $imageUpload = $this->image;
         }
 
@@ -108,12 +107,10 @@ class CrudPortfolioItem extends Component
             'image' => $imageUpload,
             'caption_image' => $this->caption_image,
             'keywords' => $this->keywords,
-            'category_id' => $this->category_id
+            'category_id' => $this->category_id,
         ]);
 
-
         session()->flash('message', 'Portfolio Item Edit Success!');
-
 
     }
 
@@ -128,11 +125,10 @@ class CrudPortfolioItem extends Component
             'image' => 'required | image | mimes:jpeg,png,jpg,gif,svg | max:2048',
             'caption_image' => 'required',
             'keywords' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
         ]);
 
         $imageUpload = $this->image->store('files', 'public');
-
 
         //dd($imageUpload);
 
@@ -145,21 +141,19 @@ class CrudPortfolioItem extends Component
             'image' => $imageUpload,
             'caption_image' => $this->caption_image,
             'keywords' => $this->keywords,
-            'category_id' => $this->category_id
+            'category_id' => $this->category_id,
         ]);
 
         $portfolioId = $portfolio->id;
 
-        foreach($this->images as $img){
+        foreach ($this->images as $img) {
             $imageUpload = $img->store('files', 'public');
             PortfolioImage::create([
                 'image' => $imageUpload,
                 'caption_image' => 'some',
-                'portfolio_id' => $portfolioId
+                'portfolio_id' => $portfolioId,
             ]);
         }
-
-
 
         $this->items = Portfolio::all();
         //$this->resetExcept('category_id');
@@ -167,7 +161,7 @@ class CrudPortfolioItem extends Component
 
     }
 
-    function deleteImage($id)
+    public function deleteImage($id)
     {
         PortfolioImage::find($id)->delete();
         session()->flash('message', 'image erase success!');

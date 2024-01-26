@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Education;
@@ -16,6 +18,7 @@ class EducationController extends Controller
     public function index()
     {
         $educations = Auth::user()->education;
+
         // dd($educations);
         return view('dashboard.education', compact('educations'));
     }
@@ -33,7 +36,6 @@ class EducationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -44,6 +46,7 @@ class EducationController extends Controller
 
         // ]);
         Education::create(request()->all());
+
         return redirect()->route('education.index');
     }
 
@@ -67,19 +70,20 @@ class EducationController extends Controller
     public function edit($id)
     {
         $education = Education::find($id);
+
         return view('dashboard.education.edit', compact('education'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Education $education)
     {
         $education->update(request()->all());
+
         return redirect()->route('education.index');
     }
 
@@ -93,6 +97,7 @@ class EducationController extends Controller
     {
 
         Education::find($id)->delete();
+
         return redirect()->back();
     }
 }

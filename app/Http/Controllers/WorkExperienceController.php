@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\WorkExperience;
@@ -35,7 +37,6 @@ class WorkExperienceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -71,7 +72,6 @@ class WorkExperienceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -89,6 +89,7 @@ class WorkExperienceController extends Controller
     public function destroy($id)
     {
         WorkExperience::find($id)->delete();
+
         return redirect()->back()->with('success', 'Experience deleted successfully');
     }
 }

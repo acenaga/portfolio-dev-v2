@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\ClientReview;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientReviewController extends Controller
 {
@@ -16,6 +18,7 @@ class ClientReviewController extends Controller
     public function index()
     {
         $reviews = Auth::user()->reviews;
+
         return view('dashboard.client-reviews', compact('reviews'));
     }
 
@@ -32,7 +35,6 @@ class ClientReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -56,7 +58,6 @@ class ClientReviewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ClientReview  $clientReview
      * @return \Illuminate\Http\Response
      */
     public function show(ClientReview $clientReview)
@@ -77,7 +78,6 @@ class ClientReviewController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -94,6 +94,7 @@ class ClientReviewController extends Controller
     public function destroy($id)
     {
         ClientReview::find($id)->delete();
+
         return redirect()->back()->with('success', 'Review deleted successfully');
     }
 }

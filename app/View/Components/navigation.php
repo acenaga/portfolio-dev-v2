@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
@@ -14,8 +16,7 @@ class navigation extends Component
      */
     public function __construct(
         public object $sections,
-    )
-    {
+    ) {
         //
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\ProfessionalSkill;
@@ -34,7 +36,6 @@ class ProfessionalSkillController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,13 +46,13 @@ class ProfessionalSkillController extends Controller
 
         ]);
         ProfessionalSkill::create(request()->all());
+
         return redirect()->route('professional-skill.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProfessionalSkill  $skill
      * @return \Illuminate\Http\Response
      */
     public function show(ProfessionalSkill $skill)
@@ -68,13 +69,13 @@ class ProfessionalSkillController extends Controller
     public function edit($id)
     {
         $skill = ProfessionalSkill::find($id);
+
         return view('dashboard.professional-skill.edit', compact('skill'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -86,6 +87,7 @@ class ProfessionalSkillController extends Controller
 
         ]);
         $ProfessionalSkill->update(request()->all());
+
         return redirect()->route('professional-skill.index');
     }
 
@@ -98,6 +100,7 @@ class ProfessionalSkillController extends Controller
     public function destroy($id)
     {
         ProfessionalSkill::find($id)->delete();
+
         return redirect()->back();
     }
 }

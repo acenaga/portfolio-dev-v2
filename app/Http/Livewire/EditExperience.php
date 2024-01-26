@@ -1,21 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\WorkExperience;
 use App\Models\WorkResponsibility;
+use Livewire\Component;
 
 class EditExperience extends Component
 {
-
     public $responsibilities;
-
     protected $rules = [
-        'responsibilities.*.description' => 'required'
+        'responsibilities.*.description' => 'required',
     ];
-
-
     public $experience = [];
     public $experienceId;
     public $position;
@@ -28,7 +26,7 @@ class EditExperience extends Component
     public $responsibilityId;
     public $responsibilityDescription;
 
-    public function mount($experience) :Void
+    public function mount($experience): void
     {
         $this->position = $experience->position;
         $this->company_name = $experience->company_name;
@@ -39,7 +37,6 @@ class EditExperience extends Component
         $this->experienceId = $experience->id;
         $this->responsibilities = $experience->responsibilities;
     }
-
 
     public function render()
     {
@@ -63,12 +60,10 @@ class EditExperience extends Component
             'description' => $this->description,
             'url' => $this->url,
             'start_date' => $this->start_date,
-            'end_date' => $this->end_date
+            'end_date' => $this->end_date,
         ]);
 
-
         session()->flash('message', 'Experience edit success!');
-
 
     }
 
@@ -85,7 +80,8 @@ class EditExperience extends Component
 
     }
 
-    public function deleteResponsibility($id){
+    public function deleteResponsibility($id)
+    {
 
         WorkResponsibility::find($id)->delete();
 
@@ -106,6 +102,4 @@ class EditExperience extends Component
 
         session()->flash('message', 'Responsibilities added with success!');
     }
-
 }
-

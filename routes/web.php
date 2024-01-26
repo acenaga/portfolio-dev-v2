@@ -1,19 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\CKEditorController;
+use App\Http\Controllers\ClientReviewController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\PortfolioCategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfessionalSkillController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TechnicalSkillController;
-use App\Http\Controllers\ClientReviewController;
-use App\Http\Controllers\PortfolioCategoryController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\WorkExperienceController;
 use App\Models\Section;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Route::get('/', function () {
 Route::get('portfolio', function () {
     $user = User::find(1);
 
-    if($user){
+    if ($user) {
         $user = $user->with(
             'professional_skills',
             'technical_skills',
@@ -47,7 +47,7 @@ Route::get('portfolio', function () {
             'social_medias',
             'sections'
         )
-        ->get();
+            ->get();
         $user = $user[0];
         $sections = $user->sections;
 
@@ -57,11 +57,10 @@ Route::get('portfolio', function () {
     return view('working');
 });
 
-
-
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
         $sections = Section::all();
+
         return view('dashboard', compact('sections'));
     })->name('dashboard');
     Route::get('/featured-projects', function () {

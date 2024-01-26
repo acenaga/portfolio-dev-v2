@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
 use App\Models\SocialMedia;
@@ -15,19 +17,21 @@ class CrudRrss extends Component
     public $idSocialMedia = '';
     public $isEdit = false;
 
-    public function mount(){
+    public function mount()
+    {
 
         $this->socialMedias = SocialMedia::where('user_id', auth()->user()->id)->get();
 
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         SocialMedia::find($id)->delete();
         $this->socialMedias = SocialMedia::where('user_id', auth()->user()->id)->get();
         session()->flash('message', 'rrss erase success!');
     }
 
-    function edit($id)
+    public function edit($id)
     {
 
         $rrss = SocialMedia::find($id);
@@ -45,15 +49,14 @@ class CrudRrss extends Component
         $this->validate([
             'name' => 'required',
             'icon' => 'required',
-            'url' => 'required'
+            'url' => 'required',
         ]);
 
         $rrss = SocialMedia::find($this->idSocialMedia)->update([
             'name' => $this->name,
             'icon' => $this->icon,
-            'url' => $this->url
+            'url' => $this->url,
         ]);
-
 
         $this->socialMedias = SocialMedia::where('user_id', auth()->user()->id)->get();
         $this->icon = '';
@@ -64,21 +67,21 @@ class CrudRrss extends Component
 
         session()->flash('message', 'Portfolio Item Edit Success!');
 
-
     }
 
-    public function save(){
+    public function save()
+    {
         $this->validate([
             'name' => 'required',
             'icon' => 'required',
-            'url' => 'required'
+            'url' => 'required',
         ]);
 
         SocialMedia::create([
             'user_id' => auth()->user()->id,
             'name' => $this->name,
             'icon' => $this->icon,
-            'url' => $this->url
+            'url' => $this->url,
         ]);
 
         $this->socialMedias = SocialMedia::where('user_id', auth()->user()->id)->get();
@@ -89,8 +92,7 @@ class CrudRrss extends Component
         session()->flash('message', 'RRSS Added success!');
     }
 
-
-    public function render():View
+    public function render(): View
     {
         return view('livewire.crud-rrss');
     }

@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use App\Models\PortfolioCategory;
 use App\Models\Portfolio;
-
+use App\Models\PortfolioCategory;
+use Livewire\Component;
 
 class CrudPortfolioCategory extends Component
 {
@@ -14,18 +15,16 @@ class CrudPortfolioCategory extends Component
     public $categoryName;
     public $edit = false;
     protected $rules = [
-        'categories.*.name' => 'required'
+        'categories.*.name' => 'required',
     ];
 
-
-    public function mount(){
+    public function mount()
+    {
 
         $this->categories = PortfolioCategory::all();
 
         //TODO retrieve the number of portfolio items using the category
         //$this->categories = PortfolioCategory::withCount(Portfolio::all())->get();
-
-
 
     }
 
@@ -36,7 +35,8 @@ class CrudPortfolioCategory extends Component
         return view('livewire.crud-portfolio-category');
     }
 
-    public function addCategory(){
+    public function addCategory()
+    {
         $this->validate([
             'categoryName' => 'required | unique:portfolio_categories,name',
         ]);
@@ -49,19 +49,21 @@ class CrudPortfolioCategory extends Component
 
         $this->categories = PortfolioCategory::all();
 
-
         session()->flash('message', 'Category add successful!');
     }
 
-    public function switchEdit(){
-        if($this->edit === false)
+    public function switchEdit()
+    {
+        if ($this->edit === false) {
             $this->edit = true;
-        else
-            $this->edit= false;
+        } else {
+            $this->edit = false;
+        }
     }
 
-    public function editCategory(){
-;
+    public function editCategory()
+    {
+
         $this->validate();
 
         foreach ($this->categories as $category) {
@@ -69,19 +71,20 @@ class CrudPortfolioCategory extends Component
         }
 
         $this->categories = PortfolioCategory::all();
-        $this->edit= false;
+        $this->edit = false;
 
         session()->flash('message', 'Category edit successful!');
 
     }
 
-    public function deleteCategory($id){
+    public function deleteCategory($id)
+    {
 
-        $portfolio_items = Portfolio::where('category_id', $id )->get();
+        $portfolio_items = Portfolio::where('category_id', $id)->get();
 
         //dd(count($portfolio_items));
 
-        if(count($portfolio_items) > 0){
+        if (count($portfolio_items) > 0) {
             $this->categories = PortfolioCategory::all();
             session()->flash('message', 'the category has items associated');
         } else {
@@ -89,8 +92,6 @@ class CrudPortfolioCategory extends Component
             $this->categories = PortfolioCategory::all();
             session()->flash('message', 'Category delete successful!');
         }
-
-
 
     }
 }

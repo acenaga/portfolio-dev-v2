@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -28,7 +30,6 @@ class CreateUsersTable extends Migration
             $table->text('about_me')->nullable();
             $table->string('about_me_picture', 2048)->nullable();
 
-
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
@@ -39,8 +40,8 @@ class CreateUsersTable extends Migration
             [
                 'name' => 'carlos', 'email' => 'mundofuturoca@gmail.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-                'email_verified_at' => now()
-            ]
+                'email_verified_at' => now(),
+            ],
 
         ]);
     }

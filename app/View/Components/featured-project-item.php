@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class featured-project-item extends Component
+class featuredProjectItem extends Component
 {
     /**
      * Create a new component instance.

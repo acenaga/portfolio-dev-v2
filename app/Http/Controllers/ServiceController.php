@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Page;
@@ -43,7 +45,6 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -54,13 +55,13 @@ class ServiceController extends Controller
 
         ]);
         Service::create(request()->all());
+
         return redirect()->route('service.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
     public function show(Page $page)
@@ -77,19 +78,20 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $service = Service::find($id);
+
         return view('dashboard.service.edit', compact('service'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Service $service)
     {
         $service->update(request()->all());
+
         return redirect()->route('service.index');
     }
 
@@ -102,6 +104,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         Service::find($id)->delete();
+
         return redirect()->back();
     }
 }
