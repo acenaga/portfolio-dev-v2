@@ -26,11 +26,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('portfolio', function () {
     $user = User::find(1);
 
     if ($user) {
@@ -54,6 +53,10 @@ Route::get('portfolio', function () {
         return view('portfolio.home-portfolio', compact('user', 'sections'));
     }
 
+    return view('working');
+});
+
+Route::get('working', function () {
     return view('working');
 });
 
