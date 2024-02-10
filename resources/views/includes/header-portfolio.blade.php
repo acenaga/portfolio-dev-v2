@@ -10,12 +10,23 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{ $user->about_me }}" />
+    @if ($user->about_me)
+        <meta name="description" content="{{ $user->about_me }}" />
+    @endif
+    @if ($user->about_me_picture)
+        <meta name="image" content="{{ $user->about_me_picture }}" />
+        <meta property="og:image" content="{{ $user->about_me_picture }}" />
+    @endif
+    @if ($user->about_me)
+        <meta property="og:description" content="{{ $user->about_me }}" />
+    @endif
+    @if ($user->professional_skills)
     <meta name="keywords"
         content="@foreach ($user->professional_skills as $professional_skills)
         {{ $professional_skills->name }},
         @endforeach
         " />
+    @endif
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- FAV AND ICONS   -->
