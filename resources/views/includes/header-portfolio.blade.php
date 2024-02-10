@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $user->name }}</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Maha Personal cv/resume template for professional and personal website." />
+    <meta name="description" content="{{ $user->about_me }}" />
     <meta name="keywords"
-        content="creative, cv, designer,  online cv, online resume, powerful portfolio, professional, professional resume, responsive, resume, vcard " />
-    <meta name="developer" content="Md. Siful Islam">
+        content="@foreach ($user->professional_skills as $professional_skills)
+        {{ $professional_skills->name }},
+        @endforeach
+        " />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- FAV AND ICONS   -->
     <link rel="shortcut icon" href="{{ asset('assets-portfolio/images/favicon.ico') }}">
     <link rel="shortcut icon" href="{{ asset('assets-portfolio/images/apple-icon.png') }}">
-    <link rel="shortcut icon" sizes="72x72" href="assets-portfolio/images/apple-icon-72x72.png">
-    <link rel="shortcut icon" sizes="114x114" href="assets-portfolio/images/apple-icon-114x114.png">
+    <link rel="shortcut icon" sizes="72x72" href="{{ asset('assets-portfolio/images/apple-icon-72x72.png') }}">
+    <link rel="shortcut icon" sizes="114x114" href="{{ asset('assets-portfolio/images/apple-icon-114x114.png') }}">
 
     <!-- Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
