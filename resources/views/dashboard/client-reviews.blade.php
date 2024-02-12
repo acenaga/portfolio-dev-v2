@@ -24,8 +24,8 @@
                     <h4 class="card-title">{{ $review->name }} - {{ $review->position }}</h4>
                     <h5 class="card-title"> <a href="{{ $review->url }}">{{ $review->company }}</a> </h5>
                     <p class="card-text">{{ $review->review }}</p>
-                    <form action="{{ route('education.destroy', $review->id) }}" method="POST">
-                        <a href="{{ route('education.edit', $review->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('client-review.destroy', $review->id) }}" method="POST">
+                        <a href="{{ route('client-review.edit', $review->id) }}" class="btn btn-warning">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

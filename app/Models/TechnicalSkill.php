@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,13 +14,11 @@ class TechnicalSkill extends Model
     protected $fillable = [
         'name',
         'user_id',
-        'percent'
+        'percent',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-
 }

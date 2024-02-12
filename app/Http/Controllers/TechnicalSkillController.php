@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\TechnicalSkill;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TechnicalSkillController extends Controller
 {
@@ -34,7 +36,6 @@ class TechnicalSkillController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,13 +46,13 @@ class TechnicalSkillController extends Controller
 
         ]);
         TechnicalSkill::create(request()->all());
+
         return redirect()->route('technical-skill.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TechnicalSkill  $skill
      * @return \Illuminate\Http\Response
      */
     public function show(TechnicalSkill $skill)
@@ -68,19 +69,20 @@ class TechnicalSkillController extends Controller
     public function edit($id)
     {
         $skill = TechnicalSkill::find($id);
+
         return view('dashboard.technical-skill.edit', compact('skill'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, TechnicalSkill $TechnicalSkill)
     {
         $TechnicalSkill->update(request()->all());
+
         return redirect()->route('technical-skill.index');
     }
 
@@ -93,6 +95,7 @@ class TechnicalSkillController extends Controller
     public function destroy($id)
     {
         TechnicalSkill::find($id)->delete();
+
         return redirect()->back();
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +15,7 @@ class Service extends Model
         'title',
         'icon',
         'description',
-        'user_id'
+        'user_id',
     ];
 
     public function user()

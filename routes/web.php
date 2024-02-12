@@ -1,15 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\CKEditorController;
+use App\Http\Controllers\ClientReviewController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\PortfolioCategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfessionalSkillController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TechnicalSkillController;
-use App\Http\Controllers\ClientReviewController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\WorkExperienceController;
+use App\Models\Section;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +26,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    $user = User::find(1);
+
+    if ($user) {
+        $user = $user->with(
+            'professional_skills',
+            'technical_skills',
+            'services',
+            'featuredProjects',
+            'education',
+            'experiences',
+            'portfolios',
+            'posts',
+            'reviews',
+            'social_medias',
+            'sections'
+        )
+            ->get();
+        $user = $user[0];
+        $sections = $user->sections;
+
+        return view('portfolio.home-portfolio', compact('user', 'sections'));
+    }
+
+    return view('working');
 });
 
-Route::get('portfolio', function () {
-    return view('portfolio.home-portfolio');
+Route::get('working', function () {
+    return view('working');
 });
-
-
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $sections = Section::all();
+
+        return view('dashboard', compact('sections'));
     })->name('dashboard');
     Route::get('/featured-projects', function () {
         return view('dashboard.featured-projects');
@@ -42,6 +72,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/portfolio-items', function () {
         return view('dashboard.portfolio-items');
     })->name('portfolio-items');
+    Route::get('/rrss', function () {
+        return view('dashboard.rrss');
+    })->name('rrss');
 
     Route::resource('education', EducationController::class);
     Route::resource('service', ServiceController::class);
@@ -50,6 +83,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::resource('client-review', ClientReviewController::class);
     Route::resource('post-items', PostController::class);
     Route::resource('work-experiences', WorkExperienceController::class);
+    Route::get('portfolio-categories', PortfolioCategoryController::class)->name('portfolio-category');
 
     Route::controller(CKEditorController::class)->group(
         function () {

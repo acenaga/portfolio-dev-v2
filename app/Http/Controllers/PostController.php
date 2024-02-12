@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\PostCategory;
-use Illuminate\Support\Facades\Storage;
-
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Termwind\Components\Dd;
 
 class PostController extends Controller
@@ -42,7 +42,6 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -55,7 +54,7 @@ class PostController extends Controller
 
         // ]);
 
-        if ($request->published == "on") {
+        if ($request->published == 'on') {
             $request->merge(['published' => 1]);
         } else {
             $request->merge(['published' => 0]);
@@ -68,13 +67,12 @@ class PostController extends Controller
         }
         $post = Post::create($request->all());
 
-
-
         //imagen
         if ($request->file('file')) {
             $post->featured_image = $request->file('file')->store('posts', 'public');
             $post->save();
         }
+
         //retornar
         return redirect()->route('post-items.index')->with('status', 'Post successfully created');
     }
@@ -82,7 +80,6 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $skill
      * @return \Illuminate\Http\Response
      */
     public function show(Post $skill)
@@ -100,13 +97,13 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $categories = PostCategory::all();
+
         return view('dashboard.post-items.edit', compact('post', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -115,8 +112,7 @@ class PostController extends Controller
         $post = Post::find($post);
         //dd($request->all());
 
-
-        if ($request->published == "on") {
+        if ($request->published == 'on') {
             $request->merge(['published' => 1]);
         } else {
             $request->merge(['published' => 0]);
@@ -128,7 +124,6 @@ class PostController extends Controller
         //dd($post->update($data));
 
         $post->update($data);
-
 
         //imagen
         if ($request->file('file')) {
@@ -150,10 +145,11 @@ class PostController extends Controller
     {
 
         $post = Post::find($id);
-        if (!str_contains($post->featured_image, 'http') && $post->featured_image != null) {
+        if (! str_contains($post->featured_image, 'http') && $post->featured_image != null) {
             Storage::disk('public')->delete($post->featured_image);
         }
         $post->delete();
+
         return redirect()->route('post-items.index');
     }
 }

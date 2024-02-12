@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +18,7 @@ class Education extends Model
         'url',
         'start_date',
         'end_date',
-        'user_id'
+        'user_id',
     ];
 
     public function user()

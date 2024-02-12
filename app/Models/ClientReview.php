@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +18,7 @@ class ClientReview extends Model
         'url',
         'review',
         'image',
-        'user_id'
+        'user_id',
     ];
 
     public function user()

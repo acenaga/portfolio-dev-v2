@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -15,8 +17,8 @@ class ProfessionalSkillFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'percent' => rand(1,99),
-            'user_id'=> 1
+            'percent' => rand(1, 99),
+            'user_id' => 1,
         ];
     }
 }

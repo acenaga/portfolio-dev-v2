@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +20,7 @@ class FeaturedProject extends Model
         'link',
         'link_text',
         'testimonial',
-        'testimonial_author'
+        'testimonial_author',
     ];
 
     public function user()

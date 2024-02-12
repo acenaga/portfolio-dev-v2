@@ -62,10 +62,10 @@
         <div class="w-md-75">
             <!-- First Name -->
             <div class="mb-3">
-                <x-jet-label for="first_name" value="{{ __('First Name') }}" />
-                <x-jet-input id="first_name" type="text" class="{{ $errors->has('first_name') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.first_name" autocomplete="first_name" />
-                <x-jet-input-error for="first_name" />
+                <x-jet-label for="name" value="{{ __('First Name') }}" />
+                <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}"
+                    wire:model.defer="state.name" autocomplete="name" />
+                <x-jet-input-error for="name" />
             </div>
 
             <!-- Last Name -->
@@ -119,8 +119,8 @@
             <!-- About Me -->
             <div class="mb-3">
                 <x-jet-label for="about_me" value="{{ __('About Me') }}" />
-                <x-jet-input id="about_me" type="text" class="{{ $errors->has('about_me') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.about_me" />
+                <textarea name="" id="about_me" rows="7" class="{{ $errors->has('about_me') ? 'is-invalid' : '' }} form-control pac-target-input"
+                    wire:model.defer="state.about_me"></textarea>
                 <x-jet-input-error for="about_me" />
             </div>
         </div>

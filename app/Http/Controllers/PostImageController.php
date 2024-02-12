@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\PostImage;
@@ -30,7 +32,6 @@ class PostImageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +42,6 @@ class PostImageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PostImage  $postImage
      * @return \Illuminate\Http\Response
      */
     public function show(PostImage $postImage)
@@ -52,7 +52,6 @@ class PostImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PostImage  $postImage
      * @return \Illuminate\Http\Response
      */
     public function edit(PostImage $postImage)
@@ -63,8 +62,6 @@ class PostImageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PostImage  $postImage
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, PostImage $postImage)
@@ -75,7 +72,6 @@ class PostImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PostImage  $postImage
      * @return \Illuminate\Http\Response
      */
     public function destroy(PostImage $postImage)

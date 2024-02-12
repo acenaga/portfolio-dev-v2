@@ -50,22 +50,14 @@
     @livewireScripts
 
     @stack('scripts')
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initAutocomplete">
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places"></script>
     <script>
-        let autocomplete;
-
-        function initAutocomplete() {
-            autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById('address'), {
-                    types: ['stablishment'],
-                    componentRestrictions: {
-                        'country': ['ar']
-                    },
-                    fields: ['place_id', 'geometry', 'name']
-                });
+        function initializeAutocomplete() {
+            var input = document.getElementById('address');
+            var autocomplete = new google.maps.places.Autocomplete(input);
         }
+
+        google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"
         integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ=="

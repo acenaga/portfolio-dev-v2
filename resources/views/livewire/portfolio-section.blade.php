@@ -24,7 +24,11 @@
                         @foreach ($portfolio as $item)
                             <div class="grid-item col-md-4 col-sm-6 col-xs-12 {{ $item->category->name }}">
                                 <figure>
-                                    <img src="{{ $item->image }} " alt="{{ $item->caption }}">
+                                    @if(strpos($item->image, "via"))
+                                        <img src="{{ $item->image }} " alt="{{ $item->caption }}">
+                                    @else
+                                    <img src="{{ $item->get_image }} " alt="{{ $item->caption }}">
+                                    @endif
                                     <figcaption class="fig-caption">
                                         <i class="fa fa-search"></i>
                                         <h5 class="title">{{ $item->title }}</h5>
@@ -58,10 +62,18 @@
                     </div>
                     <div class="col-sm-7">
                         <div class="mh-portfolio-modal-img">
-                            <img src="{{ $item->image }}" alt="{{ $item->title }}" class="img-fluid">
+                            @if(strpos($item->image, "via"))
+                                <img src="{{ $item->image }}" alt="{{ $item->title }}" class="img-fluid">
+                            @else
+                                <img src="{{ $item->get_image }}" alt="{{ $item->title }}" class="img-fluid">
+                            @endif
                             <p>{{ $item->caption_image }}</p>
                             @foreach ($item->portfolio_images as $img)
-                                <img src="{{ $img->image }} " alt="{{ $item->title }}" class="img-fluid">
+                                @if(strpos($item->image, "via"))
+                                    <img src="{{ $img->image }} " alt="{{ $item->title }}" class="img-fluid">
+                                @else
+                                    <img src="{{ $img->get_image }} " alt="{{ $item->title }}" class="img-fluid">
+                                @endif
                                 <p>{{ $img->caption_image }}</p>
                             @endforeach
                         </div>

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class technical-skills extends Component
+class technicalSkills extends Component
 {
     /**
      * Create a new component instance.

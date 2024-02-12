@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,8 +24,8 @@ class EducationFactory extends Factory
             'description' => $this->faker->sentence,
             'url' => $this->faker->url,
             'start_date' => $this->faker->year,
-            'end_date'  => $this->faker->year,
-            'user_id'=> 1
+            'end_date' => $this->faker->year,
+            'user_id' => 1,
         ];
     }
 }

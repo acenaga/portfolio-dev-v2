@@ -36,6 +36,24 @@
                 <x-jet-nav-link href="{{ route('work-experiences.index') }}" :active="request()->routeIs('work-experiences.index')">
                     {{ __('Work Experiences') }}
                 </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('rrss') }}" :active="request()->routeIs('rrss')">
+                    {{ __('Socials Links') }}
+                </x-jet-nav-link>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Portfolio
+                    </a>
+                    <ul class="dropdown-menu">
+                        <x-jet-nav-link href="{{ route('portfolio-category') }}" :active="request()->routeIs('portfolio-category')">
+                            {{ __('Portfolio Categories') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('portfolio-items') }}" :active="request()->routeIs('portfolio-items')">
+                            {{ __('Portfolio Items') }}
+                        </x-jet-nav-link>
+                    </ul>
+
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -91,9 +109,9 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <img class="rounded-circle" width="32" height="32"
-                                    src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name() }}" />
+                                    src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->email }}" />
                             @else
-                                {{ Auth::user()->name() }}
+                                {{ Auth::user()->email }}
 
                                 <svg class="ms-2" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                     fill="currentColor">

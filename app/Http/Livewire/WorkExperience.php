@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
 use App\Models\User;
@@ -13,6 +15,7 @@ class WorkExperience extends Component
         $user = User::find(1)->with('experiences.responsibilities')->first();
 
         $experiences = $user->experiences;
+
         //dd($experiences);
         return view('livewire.work-experience', compact('experiences'));
     }
