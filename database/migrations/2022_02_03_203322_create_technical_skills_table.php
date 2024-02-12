@@ -18,13 +18,11 @@ class CreateTechnicalSkillsTable extends Migration
         Schema::create('technical_skills', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id');
             $table->string('name')->nullable();
             $table->integer('percent')->nullable();
-
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained();
 
         });
     }
