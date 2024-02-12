@@ -26,7 +26,8 @@ return new class extends Migration
             $table->string('link');
 
             $table->foreignId('user_id')->constrained();
-            $table->foreign('category_id')->references('id')->on('portfolio_categories')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained();
+            //$table->foreign('category_id')->references('id')->on('portfolio_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
