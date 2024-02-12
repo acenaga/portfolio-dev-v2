@@ -19,7 +19,6 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('slug');
             $table->text('content');
@@ -27,7 +26,7 @@ return new class extends Migration
             $table->string('excerpt')->nullable();
             $table->boolean('published')->default(true);
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained();
             $table->foreign('category_id')->references('id')->on('post_categories')->onDelete('cascade');
 
             $table->timestamps();

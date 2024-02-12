@@ -17,18 +17,15 @@ return new class extends Migration
     {
         Schema::create('work_experiences', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('user_id');
             $table->string('position')->nullable();
             $table->string('company_name')->nullable();
             $table->string('description')->nullable();
             $table->string('url')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained();
         });
     }
 
