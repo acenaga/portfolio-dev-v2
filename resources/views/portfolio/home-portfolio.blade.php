@@ -191,6 +191,13 @@
                                             </div>
                                         </form>
                                     </div>
+                                    <div class="col-sm-12 col-md-6 wow fadeInUp" data-wow-duration="0.8s"
+                                    data-wow-delay="0.5s">
+                                        <div class="mh-map">
+                                            <div id="mh-map" class="shadow-1"></div>
+                                        </div>
+
+                                    </div>
                                     <div class="col-sm-12 mh-copyright wow fadeInUp" data-wow-duration="0.8s"
                                         data-wow-delay="0.2s">
                                         <div class="row">
