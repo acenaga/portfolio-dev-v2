@@ -22,8 +22,8 @@
     @endif
     @if ($user->technical_skills->count() > 0)
     <meta name="keywords"
-        content="@foreach ($user->technical_skills as $technical_skills)
-        {{ $technical_skills->name }},
+        content="@foreach ($user->technical_skills as $technical_skill)
+        {{ $technical_skill->name }},
         @endforeach
         " />
     @endif
