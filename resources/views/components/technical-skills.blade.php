@@ -1,7 +1,7 @@
 <div class="candidatos">
     <div class="parcial">
         <div class="info">
-            <div class="nome">{{ $tSkill->name }}t</div>
+            <div class="nome">{{ $tSkill->name }}</div>
             <div class="percentagem-num">{{ $tSkill->percent }}%</div>
         </div>
         <div class="progressBar">
