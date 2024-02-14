@@ -42,8 +42,8 @@ class ProfessionalSkillController extends Controller
     {
         //dd(request()->all());
         $request->validate([
-            'name' => 'required | min:3 | max:40',
-
+            'name' => 'required | min:3 | max:100',
+            'percent' => 'required|integer|between:1,100'
         ]);
         ProfessionalSkill::create(request()->all());
 
@@ -83,8 +83,8 @@ class ProfessionalSkillController extends Controller
     {
 
         $request->validate([
-            'name' => 'required | min:3 | max:40',
-
+            'name' => 'required | min:3 | max:100',
+            'percent' => 'required|integer|between:1,100'
         ]);
         $ProfessionalSkill->update(request()->all());
 

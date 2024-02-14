@@ -42,8 +42,8 @@ class TechnicalSkillController extends Controller
     {
         //dd(request()->all());
         $request->validate([
-            'name' => 'required | min:3 | max:40',
-
+            'name' => 'required | min:3 | max:100',
+            'percent' => 'required|integer|between:1,100'
         ]);
         TechnicalSkill::create(request()->all());
 
@@ -81,8 +81,10 @@ class TechnicalSkillController extends Controller
      */
     public function update(Request $request, TechnicalSkill $TechnicalSkill)
     {
-        $TechnicalSkill->update(request()->all());
-
+        $request->validate([
+            'name' => 'required | min:3 | max:100',
+            'percent' => 'required|integer|between:1,100'
+        ]);
         return redirect()->route('technical-skill.index');
     }
 
