@@ -46,10 +46,10 @@ class EditExperience extends Component
     public function editExperience()
     {
         $this->validate([
-            'position' => 'required',
-            'company_name' => 'required',
-            'description' => 'required',
-            'url' => 'required',
+            'position' => 'required | max:255',
+            'company_name' => 'required | max:255',
+            'description' => 'required | max:255',
+            'url' => 'required | max:255',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);

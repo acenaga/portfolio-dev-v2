@@ -29,10 +29,10 @@ class CreateExperience extends Component
     public function createExperience()
     {
         $this->validate([
-            'position' => 'required',
-            'company_name' => 'required',
-            'description' => 'required',
-            'url' => 'required',
+            'position' => 'required | max:255',
+            'company_name' => 'required | max:255',
+            'description' => 'required | max:255',
+            'url' => 'required | max:255',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
@@ -57,7 +57,7 @@ class CreateExperience extends Component
     {
 
         $this->validate([
-            'responsibilityDescription' => 'required',
+            'responsibilityDescription' => 'required | max:255',
         ]);
 
         WorkResponsibility::create([
