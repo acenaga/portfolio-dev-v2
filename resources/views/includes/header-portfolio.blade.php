@@ -20,10 +20,10 @@
     @if ($user->about_me)
         <meta property="og:description" content="{{ $user->about_me }}" />
     @endif
-    @if ($user->professional_skills)
+    @if ($user->technical_skills->count() > 0)
     <meta name="keywords"
-        content="@foreach ($user->professional_skills as $professional_skills)
-        {{ $professional_skills->name }},
+        content="@foreach ($user->technical_skills as $technical_skills)
+        {{ $technical_skills->name }},
         @endforeach
         " />
     @endif
