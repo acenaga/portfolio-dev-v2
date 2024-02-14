@@ -27,7 +27,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'profession' => ['nullable', 'string', 'max:255'],
             'greeting' => ['nullable', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:255'],
-            'about_me' => ['nullable', 'string', 'max:255'],
+            'about_me' => ['nullable', 'string', 'max:1000'],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024', 'dimensions:min_width=100,min_height=100', 'dimensions:ratio=1/1'],
             //'about_me_picture' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
