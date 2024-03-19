@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\Fortify;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -28,12 +29,20 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'greeting' => ['nullable', 'string', 'max:255'],
             'address' => ['nullable', 'string', 'max:255'],
             'about_me' => ['nullable', 'string', 'max:1000'],
+            'cv' => ['nullable', 'mimes:pdf', 'max:1024'],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024', 'dimensions:min_width=100,min_height=100', 'dimensions:ratio=1/1'],
             //'about_me_picture' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
             $user->updateProfilePhoto($input['photo']);
+        }
+        if (isset($input['cv'])) {
+            $input['cv']->storeAs('cv', $user->name . '-cv.pdf', 'public');
+
+            $user->forceFill([
+                'cv' => 'cv/'.$user->name . '-cv.pdf',
+            ])->save();
         }
 
         if (
@@ -52,6 +61,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'address' => $input['address'],
                 'about_me' => $input['about_me'],
             ])->save();
+
         }
     }
 

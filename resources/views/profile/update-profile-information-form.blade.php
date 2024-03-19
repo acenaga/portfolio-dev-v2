@@ -123,6 +123,13 @@
                     wire:model.defer="state.about_me"></textarea>
                 <x-jet-input-error for="about_me" />
             </div>
+            <!-- CV -->
+            <div class="mb-3">
+                <x-jet-label for="cv" value="{{ __('CV') }}" />
+                <x-jet-input id="cv" type="file" class="{{ $errors->has('cv') ? 'is-invalid' : '' }}"
+                    wire:model.defer="state.cv" />
+                <x-jet-input-error for="cv" />
+            </div>
         </div>
     </x-slot>
 
