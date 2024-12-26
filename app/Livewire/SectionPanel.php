@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Section;
 use Livewire\Component;
@@ -10,16 +10,17 @@ use Livewire\Component;
 class SectionPanel extends Component
 {
     public Section $model;
-    public $field;
-    public $isActive;
+    public string $field;
+    public bool $isActive;
 
     public function mount()
     {
         $this->isActive = (bool) $this->model->getAttribute($this->field);
     }
 
-    public function updating($field, $value)
+    public function updatingIsActive($value)
     {
+        dd($value);
         $this->model->setAttribute($this->field, $value)->save();
 
     }

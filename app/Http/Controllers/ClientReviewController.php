@@ -17,7 +17,8 @@ class ClientReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Auth::user()->reviews;
+        $user = Auth::user();
+        $reviews = $user->reviews;
 
         return view('dashboard.client-reviews', compact('reviews'));
     }
@@ -71,9 +72,7 @@ class ClientReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-    }
+    public function edit($id) {}
 
     /**
      * Update the specified resource in storage.
@@ -81,9 +80,7 @@ class ClientReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClientReview $clientReview)
-    {
-    }
+    public function update(Request $request, ClientReview $clientReview) {}
 
     /**
      * Remove the specified resource from storage.

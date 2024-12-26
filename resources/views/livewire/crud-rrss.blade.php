@@ -20,10 +20,10 @@
         @endforeach
     </div>
     <div class="col-12 col-md-6">
-        <form wire:submit.prevent="save()">
+        <form wire:submit="save()">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input wire:model="name" type="text" class="form-control" id="title"
+                <input wire:model.live="name" type="text" class="form-control" id="title"
                     placeholder="some like facebook">
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
@@ -31,7 +31,7 @@
             </div>
             <div class="mb-3">
                 <label for="icon" class="form-label">icon</label>
-                <input wire:model="icon" type="text" class="form-control" id="title"
+                <input wire:model.live="icon" type="text" class="form-control" id="title"
                     placeholder="some like facebook">
                 @error('icon')
                     <span class="text-danger">{{ $message }}</span>
@@ -39,7 +39,7 @@
             </div>
             <div class="mb-3">
                 <label for="url" class="form-label">Url</label>
-                <input wire:model="url" type="text" class="form-control" id="title"
+                <input wire:model.live="url" type="text" class="form-control" id="title"
                     placeholder="some like facebook">
                 @error('url')
                     <span class="text-danger">{{ $message }}</span>
