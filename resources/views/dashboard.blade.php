@@ -3,6 +3,7 @@
         <h2 class="h4 font-weight-bold">
             {{ __('Dashboard') }}
         </h2>
+
     </x-slot>
     <div class="container-fluid">
         <div class="row">
@@ -10,7 +11,7 @@
                 <div class="form-check form-switch">
                     <p class="h3"> Sections Control</p>
                     @foreach ($sections as $section)
-                        @livewire('section-panel', ['model' => $section, 'field' => 'isActive'], key($user->id))
+                        @livewire('section-panel', ['model' => $section, 'field' => 'isActive'], key(auth()->user()->id))
                     @endforeach
                 </div>
             </div>
