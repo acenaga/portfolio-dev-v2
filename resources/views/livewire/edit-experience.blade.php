@@ -1,15 +1,15 @@
 <div>
-    <form wire:submit.prevent="editExperience()">
+    <form wire:submit="editExperience()">
         <div class="mb-3">
             <label for="position" class="form-label">Position</label>
-            <input type="text" class="form-control" maxlength="40" wire:model="position" placeholder="Founder" value="{{ $experience->position }}">
+            <input type="text" class="form-control" maxlength="40" wire:model.live="position" placeholder="Founder" value="{{ $experience->position }}">
             @error('position')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="mb-3">
             <label for="company_name" class="form-label">Company Name</label>
-            <input type="text" wire:model="company_name" class="form-control" maxlength="40" id="company_name"
+            <input type="text" wire:model.live="company_name" class="form-control" maxlength="40" id="company_name"
                 placeholder="PDVSA">
             @error('company_name')
                 <span class="text-danger">{{ $message }}</span>
@@ -17,14 +17,14 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" wire:model="description" id="description"></textarea>
+            <textarea class="form-control" wire:model.live="description" id="description"></textarea>
             @error('description')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="mb-3">
             <label for="url" class="form-label">Company Url</label>
-            <input type="url" wire:model="url" class="form-control" id="url" placeholder="https://example.com"
+            <input type="url" wire:model.live="url" class="form-control" id="url" placeholder="https://example.com"
                 pattern="https://.*" size="30">
             @error('url')
                 <span class="text-danger">{{ $message }}</span>
@@ -32,14 +32,14 @@
         </div>
         <div class="mb-3">
             <label for="start_date">Start Date</label>
-            <input id="start_date" wire:model="start_date" class="form-control" type="date" />
+            <input id="start_date" wire:model.live="start_date" class="form-control" type="date" />
             @error('start_date')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="mb-3">
             <label for="end_date">End Date</label>
-            <input id="end_date" wire:model="end_date" class="form-control" type="date" />
+            <input id="end_date" wire:model.live="end_date" class="form-control" type="date" />
             @error('end_date')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -47,10 +47,10 @@
             <input value="Update" type="submit" class="btn btn-primary text-light form-control">
     </form>
     @if (sizeof($responsibilities) != 0)
-        <form class="mt-3" wire:submit.prevent="editResponsibilities">
+        <form class="mt-3" wire:submit="editResponsibilities">
             @foreach ($responsibilities as $index => $responsibility)
                 <div wire:key="responsibility-field-{{ $responsibility->id }}" class="mb-3 row">
-                    <textarea class="form-control" wire:model="responsibilities.{{$index}}.description" id="responsibilities.{{$index}}.description"></textarea>
+                    <textarea class="form-control" wire:model.live="responsibilities.{{$index}}.description" id="responsibilities.{{$index}}.description"></textarea>
                     @error('responsibilityDescription')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -63,10 +63,10 @@
         </form>
 
     @else
-        <form wire:submit.prevent="addingResponsibilities({{ $experience->id }})">
+        <form wire:submit="addingResponsibilities({{ $experience->id }})">
             <div class="mb-3">
                 <label for="responsibilityDescription" class="form-label">Responsibility</label>
-                <textarea class="form-control" wire:model="responsibilityDescription" id="responsibilityDescription"></textarea>
+                <textarea class="form-control" wire:model.live="responsibilityDescription" id="responsibilityDescription"></textarea>
                 @error('responsibilityDescription')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

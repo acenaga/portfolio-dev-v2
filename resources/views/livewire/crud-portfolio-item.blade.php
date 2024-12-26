@@ -8,10 +8,10 @@
             </div>
         @endif
         <div id="create" class="col-12 col-md-4">
-            <form wire:submit.prevent="save()" enctype="multipart/form-data">
+            <form wire:submit="save()" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input wire:model="title" type="text" class="form-control" maxlength="40" id="title"
+                    <input wire:model.live="title" type="text" class="form-control" maxlength="40" id="title"
                         placeholder="A great game">
                     @error('title')
                         <span class="text-danger">{{ $message }}</span>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="sub_title" class="form-label">Sub Title</label>
-                    <input type="text" wire:model="sub_title" class="form-control" id="sub_title"
+                    <input type="text" wire:model.live="sub_title" class="form-control" id="sub_title"
                         placeholder="yeah the better game!">
                     @error('sub_title')
                         <span class="text-danger">{{ $message }}</span>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" wire:model="description" id="description" rows="3"
+                    <textarea class="form-control" wire:model.live="description" id="description" rows="3"
                         placeholder="Put some very description"></textarea>
                     @error('description')
                         <span class="text-danger">{{ $message }}</span>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="url" class="form-label">Project Url</label>
-                    <input type="url" wire:model="url" class="form-control" id="url"
+                    <input type="url" wire:model.live="url" class="form-control" id="url"
                         placeholder="https://example.com" size="70">
                     @error('url')
                         <span class="text-danger">{{ $message }}</span>
@@ -46,14 +46,14 @@
                     @if($isEdit)
                         <img src="{{ $image }}" class="img-fluid" alt="{{ $caption_image }}">
                     @endif
-                    <input class="form-control" id="image" type="file" wire:model="image">
+                    <input class="form-control" id="image" type="file" wire:model.live="image">
                     @error('image')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="caption_image" class="form-label">Image Caption</label>
-                    <input type="text" wire:model="caption_image" class="form-control" id="caption_image"
+                    <input type="text" wire:model.live="caption_image" class="form-control" id="caption_image"
                         placeholder="This is the best image">
                     @error('caption_image')
                         <span class="text-danger">{{ $message }}</span>
@@ -75,19 +75,19 @@
                         </figure>
                         <p>{{ var_dump(5 - count($images))  }}</p>
                         @for ($i = 0; $i < (5 - count($images)); $i++)
-                            <input class="form-control" id="images1" type="file" wire:model="images.{{$i}}">
+                            <input class="form-control" id="images1" type="file" wire:model.live="images.{{$i}}">
                         @endfor
                     @else
-                        <input class="form-control" id="images1" type="file" wire:model="images.0">
-                        <input class="form-control" id="images2" type="file" wire:model="images.1">
-                        <input class="form-control" id="images3" type="file" wire:model="images.2">
-                        <input class="form-control" id="images4" type="file" wire:model="images.3">
-                        <input class="form-control" id="images5" type="file" wire:model="images.4">
+                        <input class="form-control" id="images1" type="file" wire:model.live="images.0">
+                        <input class="form-control" id="images2" type="file" wire:model.live="images.1">
+                        <input class="form-control" id="images3" type="file" wire:model.live="images.2">
+                        <input class="form-control" id="images4" type="file" wire:model.live="images.3">
+                        <input class="form-control" id="images5" type="file" wire:model.live="images.4">
                     @endif
                 </div>
                 <div class="mb-3">
                     <label for="category_id" class="form-label">Category</label>
-                    <select class="form-select" id="category_id" wire:model="category_id">
+                    <select class="form-select" id="category_id" wire:model.live="category_id">
                         <option selected>Open this select menu</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="keywords" class="form-label">keywords</label>
-                    <textarea class="form-control" wire:model="keywords" id="keywords" rows="3"></textarea>
+                    <textarea class="form-control" wire:model.live="keywords" id="keywords" rows="3"></textarea>
                     @error('keywords')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror

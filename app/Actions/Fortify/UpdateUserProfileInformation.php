@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Actions\Fortify;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -38,10 +37,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->updateProfilePhoto($input['photo']);
         }
         if (isset($input['cv'])) {
-            $input['cv']->storeAs('cv', $user->name . '-cv.pdf', 'public');
+            $input['cv']->storeAs('cv', $user->name.'-cv.pdf', 'public');
 
             $user->forceFill([
-                'cv' => 'cv/'.$user->name . '-cv.pdf',
+                'cv' => 'cv/'.$user->name.'-cv.pdf',
             ])->save();
         }
 

@@ -2,7 +2,7 @@
     <div class="col-md-12 col-lg-4">
         <h2>You have {{ count($categories) }} Categories</h2>
         @if ($edit)
-            <form wire:submit.prevent="editCategory()">
+            <form wire:submit="editCategory()">
         @endif
         @foreach ($categories as $index => $category)
             @if (!$edit)
@@ -15,7 +15,7 @@
                 </div>
             @else
                 <div wire:key="category-field-{{ $category->id }}" class="mb-3">
-                    <input wire:model="categories.{{$index}}.name" id="categories.{{$index}}.name" type="text" value="{{$category->name}}">
+                    <input wire:model.live="categories.{{$index}}.name" id="categories.{{$index}}.name" type="text" value="{{$category->name}}">
                 </div>
             @endif
         @endforeach
@@ -30,9 +30,9 @@
     </div>
 
     <div class="col-md-12 col-lg-4">
-        <form wire:submit.prevent="addCategory()">
+        <form wire:submit="addCategory()">
             <label for="categoryName" class="form-label">Category</label>
-            <input type="text" class="form-control" wire:model="categoryName" id="categoryName"></input>
+            <input type="text" class="form-control" wire:model.live="categoryName" id="categoryName"></input>
             @error('categoryName')
                 <span class="text-danger">{{ $message }}</span>
             @enderror

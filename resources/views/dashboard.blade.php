@@ -17,5 +17,5 @@
         </div>
 
     </div>
-    {{-- <x-jet-welcome /> --}}
+    {{-- <x-welcome /> --}}
 </x-app-layout>
