@@ -18,9 +18,8 @@ class SectionPanel extends Component
         $this->isActive = (bool) $this->model->getAttribute($this->field);
     }
 
-    public function updatingIsActive($value)
+    public function updatedIsActive($value)
     {
-        dd($value);
         $this->model->setAttribute($this->field, $value)->save();
 
     }
