@@ -6,7 +6,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class technicalSkills extends Component
+class SliderItem extends Component
 {
     /**
      * Create a new component instance.
@@ -25,6 +25,6 @@ class technicalSkills extends Component
      */
     public function render()
     {
-        return view('components.technical-skills');
+        return view('components.slider-item');
     }
 }

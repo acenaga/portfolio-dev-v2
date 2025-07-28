@@ -6,16 +6,24 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class socialMediaItem extends Component
+class SocialMediaItem extends Component
 {
+    /**
+     * The social media data.
+     *
+     * @var mixed
+     */
+    public $social;
+
     /**
      * Create a new component instance.
      *
+     * @param mixed $socialMedia
      * @return void
      */
-    public function __construct()
+    public function __construct($socialMedia)
     {
-        //
+        $this->social = $socialMedia;
     }
 
     /**

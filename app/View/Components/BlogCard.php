@@ -6,7 +6,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class blogCard extends Component
+class BlogCard extends Component
 {
     /**
      * Create a new component instance.

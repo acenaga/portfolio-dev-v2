@@ -6,7 +6,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class headerPortfolio extends Component
+class TechnicalSkills extends Component
 {
     /**
      * Create a new component instance.
@@ -25,6 +25,6 @@ class headerPortfolio extends Component
      */
     public function render()
     {
-        return view('components.header-portfolio');
+        return view('components.technical-skills');
     }
 }

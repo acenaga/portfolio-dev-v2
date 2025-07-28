@@ -6,7 +6,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class professionalSkill extends Component
+class FeaturedProjectItem extends Component
 {
     /**
      * Create a new component instance.
@@ -25,6 +25,6 @@ class professionalSkill extends Component
      */
     public function render()
     {
-        return view('components.professional-skill');
+        return view('components.featured-project-item');
     }
 }
