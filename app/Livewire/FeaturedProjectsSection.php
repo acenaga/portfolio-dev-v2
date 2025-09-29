@@ -14,7 +14,7 @@ class FeaturedProjectsSection extends Component
 
         $user = User::find(1)->with('featuredProjects')->first();
 
-        $projects = $user->featuredProjects;
+        $projects = $user->featuredProjects();
 
         return view('livewire.featured-projects-section', compact('projects'));
     }

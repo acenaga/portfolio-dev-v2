@@ -16,6 +16,7 @@ class CrudRrss extends Component
     public $url = '';
     public $idSocialMedia = '';
     public $isEdit = false;
+    public $id = '';
 
     public function mount()
     {

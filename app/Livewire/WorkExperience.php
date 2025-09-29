@@ -14,7 +14,7 @@ class WorkExperience extends Component
 
         $user = User::find(1)->with('experiences.responsibilities')->first();
 
-        $experiences = $user->experiences;
+        $experiences = $user->experiences();
 
         //dd($experiences);
         return view('livewire.work-experience', compact('experiences'));
