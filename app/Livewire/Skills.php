@@ -14,9 +14,9 @@ class Skills extends Component
 
         $user = User::find(1)->with('professional_skills', 'technical_skills')->first();
 
-        $professional_skills = $user->professional_skills;
+        $professional_skills = $user->professional_skills();
 
-        $technical_skills = $user->technical_skills;
+        $technical_skills = $user->technical_skills();
 
         return view('livewire.skills', compact('professional_skills', 'technical_skills'));
     }

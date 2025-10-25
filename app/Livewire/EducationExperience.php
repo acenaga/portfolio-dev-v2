@@ -14,7 +14,7 @@ class EducationExperience extends Component
 
         $user = User::find(1)->with('education')->first();
 
-        $education = $user->education;
+        $education = $user->education();
 
         return view('livewire.education-experience', compact('education'));
     }

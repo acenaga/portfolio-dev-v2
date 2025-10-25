@@ -18,7 +18,7 @@ class ClientReviewController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $reviews = $user->reviews;
+        $reviews = $user->reviews();
 
         return view('dashboard.client-reviews', compact('reviews'));
     }

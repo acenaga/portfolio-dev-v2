@@ -14,7 +14,7 @@ class ServiceSection extends Component
 
         $user = User::find(1)->with('services')->first();
 
-        $services = $user->services;
+        $services = $user->services();
 
         return view('livewire.service-section', compact('services'));
     }
