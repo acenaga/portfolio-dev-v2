@@ -24,5 +24,4 @@ Route::get('/test', function () {
     return 'Hello World';
 });
 
-Route::get('/convert-image', function () {
-});
+Route::get('/convert-image', function () {});

@@ -27,7 +27,7 @@
                     <ul>
                         @if ($user->email)
                             <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i
-                                    class="fa fa-envelope"></i><a href="mailto:">{{ $user->email }}</a></li>
+                                    class="fa fa-envelope"></i><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></li>
                         @else
                             <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i
                                     class="fa fa-envelope"></i><a href="mailto:">getemail@email.com</a></li>
@@ -35,7 +35,7 @@
 
                         @if ($user->phone)
                             <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i
-                                    class="fa fa-phone"></i><a href="callto:">{{ $user->phone }}</a></li>
+                                    class="fa fa-phone"></i><a href="callto:{{ $user->phone }}">{{ $user->phone }}</a></li>
                         @else
                             <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i
                                     class="fa fa-phone"></i><a href="callto:">+12 986 987 7867</a></li>

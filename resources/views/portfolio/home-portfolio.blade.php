@@ -11,7 +11,7 @@
 
     {{-- Home --}}
     <section class="mh-home image-bg home-2-img" id="mh-home">
-        <livewire:home-section>
+        <livewire:home-section />
     </section>
 
     @foreach ($sections as $section)
