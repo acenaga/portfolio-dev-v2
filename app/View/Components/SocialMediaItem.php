@@ -18,12 +18,12 @@ class SocialMediaItem extends Component
     /**
      * Create a new component instance.
      *
-     * @param mixed $socialMedia
+     * @param mixed $social
      * @return void
      */
-    public function __construct($socialMedia)
+    public function __construct($social)
     {
-        $this->social = $socialMedia;
+        $this->social = $social;
     }
 
     /**
