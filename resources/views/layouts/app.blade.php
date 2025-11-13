@@ -12,7 +12,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href=" {{ asset('assets-portfolio/icons/font-awesome-4.7.0/css/font-awesome.min.css') }} ">
+    <!-- our project is using icons from Solid, Sharp Thin, Sharp Duotone Thin + Brands -->
+    <link href="{{ asset('assets-portfolio/fontawesome/css/fontawesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets-portfolio/fontawesome/css/brands.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets-portfolio/fontawesome/css/solid.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets-portfolio/fontawesome/css/sharp-thin.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets-portfolio/fontawesome/css/sharp-duotone-thin.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
         integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
