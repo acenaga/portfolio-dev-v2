@@ -8,4 +8,19 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler', // o "modern", depende de tu versión de sass
+               silenceDeprecations: [
+                    'import',
+                    'global-builtin',
+                    'color-functions',
+                    'if-function',
+                    'mixed-decls',
+                    'legacy-js-api'
+                ],
+            },
+        },
+    },
 });
