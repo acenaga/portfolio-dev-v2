@@ -23,13 +23,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="{{ mix('js/main.js') }}" defer></script>
     <script src="//cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
 </head>
 
